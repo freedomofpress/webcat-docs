@@ -1,2 +1,13 @@
 # webcat-docs
-Documentation for WEBCAT
+
+## Setup
+
+```bash
+cargo install mdbook
+```
+
+## Serve
+
+```bash
+just serve
+```
