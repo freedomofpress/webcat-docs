@@ -4,20 +4,26 @@
 
 ### How does WEBCAT work?
 
+Sites opt into WEBCAT by publishing a signed manifest of their web application resources. Users with the WEBCAT browser extension verify that loaded resources match the verified manifest, blocking page load if there are any modifications.
+
 ### How is this different from HTTPS?
 
 HTTPS doesn't protect your users if the site hosting the web application itself
 gets hacked.
 
-### How is this different from Certificate Transparency?
-
 ### How is this different from Subresource Integrity (SRI)?
+
+SRI protects against compromised third-party resource hosts (like CDNs) by verifying against specified hashes. However, if the first-party site is hacked, an attacker can modify the code to remove or change the integrity hashes, bypassing SRI protection.
 
 ### How is this different from Content Security Policy (CSP)?
 
+CSP restricts what resources a document is allowed to load and is primarily designed to protect against attacks like cross-site scripting (XSS). CSP can use hashes in fetch directives to verify script and style integrity, but if the first-party site is compromised, an attacker can modify the CSP headers or meta tags to remove or change those hashes, allowing malicious resources. WEBCAT verifies that resources match their signed manifests, preventing attackers from modifying the policy even if they compromise the site.
+
 ### What happens if a site gets compromised after enrollment?
 
-If the resources
+If the resources served are modified by the attacker, then users that
+are using the WEBCAT browser extension would be protected. When those resources
+are loaded and checked against the WEBCAT manifest, the page load would be halted.
 
 ### How do users verify that a site is enrolled in WEBCAT?
 
