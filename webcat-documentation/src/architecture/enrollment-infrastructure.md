@@ -1,10 +1,8 @@
 # Enrollment Infrastructure
 
-**WEBCAT Infra Chain**
+The WEBCAT enrollment infrastructure is a distributed system, designed to reduce censorship risks and avoid single points of trust or failure.
 
-This repository showcases how a quick, permissioned blockchain for the WEBCAT infrastructure could look. The goal is to replace both the Enrollment Server and the Build Server with a distributed system, reducing censorship risks and avoiding single points of trust or failure. It may also be cheaper to run, as distributing trust makes high availability, backups, and redundancy of individual nodes less critical.
-
-For sequence diagrams of the enrollment flow and oracle/validator communication, see here.
+For sequence diagrams of the enrollment flow and oracle/validator communication, see [here](https://github.com/freedomofpress/webcat-infra-chain/blob/main/docs/seq_diag.md).
 
 ## Key entities and behaviors
 
