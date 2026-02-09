@@ -2,14 +2,6 @@
 
 This section is for anyone contributing to WEBCAT development.
 
-## Enrollment Infrastructure
-
-See [Enrollment Infrastructure](../architecture/enrollment-infrastructure.md) in the Architecture section for the WEBCAT infra chain design.
-
-## Web Extension
-
-TK
-
-## CLI
-
-TK
+* If you're interested in the Rust enrollment infrastructure, see [Enrollment Infrastructure](./enrollment-infrastructure.md).
+* If you're interested in the Browser Extension, see [Browser Extension](./browser-extension.md).
+* If you're interested in the CLI, see [CLI](./cli.md).

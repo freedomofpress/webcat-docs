@@ -10,6 +10,8 @@
   - [Enrollment Infrastructure](./architecture/enrollment-infrastructure.md)
 - [For Contributors](./contributors/README.md)
   - [Enrollment Infrastructure](./contributors/enrollment-infrastructure.md)
+  - [Browser Extension](./contributors/browser-extension.md)
+  - [CLI](./contributors/cli.md)
 - [For Infrastructure Operators](./for-infrastructure-operators.md)
   - [WEBCAT Validator operator](./contributors/validator-operator.md)
 - [FAQ](./faq.md)
