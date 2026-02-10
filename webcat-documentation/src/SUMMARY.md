@@ -16,6 +16,7 @@
   - [Enrollment Infrastructure](./contributors/enrollment-infrastructure.md)
     - [Getting Started](./contributors/enrollment-infrastructure/getting_started.md)
     - [Testing](./contributors/enrollment-infrastructure/testing.md)
+    - [Query Interface](./contributors/enrollment-infrastructure/felidae_query.md)
     - [Setting Up Admin and Oracle](./contributors/enrollment-infrastructure/setting_up_admin_and_oracle.md)
     - [Run Oracle as HTTP Server](./contributors/enrollment-infrastructure/oracle_as_http.md)
     - [Run Enrollment Frontend](./contributors/enrollment-infrastructure/frontend.md)
