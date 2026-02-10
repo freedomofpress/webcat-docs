@@ -1,4 +1,31 @@
 ### Glossary
+
+#### WEBCAT
+
+ * **Enrollment information** A structured JSON document containing the WEBCAT enrollment data, as defined by the WEBCAT specification. Participating site operators MUST serve this document at `/.well-known/webcat/enrollment.json`, and MUST submit an update to the *enrollment system* every time it changes.
+ The *enrollment system* performs basic validation and records a cryptographic hash of the enrollment information. After a mandatory *cooldown* period, during which the enrollment information MUST remain unchanged, the information is verified again and, if valid, committed to the *enrollment system*.
+
+ * **Enrollment system** A distributed, consensus-based system acting as WEBCAT's root of trust. Nodes are operated by independent, trusted organizations, and all state-changing operations require approval by a 2/3 supermajority.
+ The system maintains an append-only ledger, with every node storing a full copy. Its purpose is to validate, timestamp, and permanently record the *enrollment information* associated with each participating domain.
+  Interactions with the enrollment system can be performed using the *WEBCAT CLI*.
+
+ * **Manifest** A structured JSON document describing the integrity properties of a web application and its execution environment, according to the WEBCAT specification.
+ Each manifest MUST be signed in accordance with the policy and trust material specified in the corresponding *enrollment information*.
+  Manifests can be generated using the *WEBCAT CLI*.
+
+ * **Bundle** A structured JSON document that combines the *enrollment information* and the *manifest* for a given web application.
+ The bundle MUST be served at `/.well-known/webcat/bundle.json` and contains all the information required by the *WEBCAT browser extension* to perform integrity verification.
+  Bundles can be generated using the *WEBCAT CLI*.
+
+ * **Browser extension** The client-side component running in the end-user’s browser, responsible for verifying the integrity of a web application.
+ At startup and at periodic intervals, the extension downloads a snapshot of the root of trust from the *enrollment system*. This snapshot is used to verify the authenticity and integrity of each website’s *enrollment information*, which in turn is used to validate the associated *manifest*.
+ Once a manifest has been successfully validated and cached, the browser extension enforces integrity checks on all application resources and related metadata, including the Content Security Policy (CSP).
+
+ * **Cooldown** A fixed time window during which a proposed *enrollment information* change for a given domain is publicly observable but not yet applied. During this period, the change is fully revertible.
+ The cooldown duration is 1 day during the alpha stage and 7 days thereafter.
+
+#### Existing Components
+
  - **Transparency Log** An append-only, publicly verifiable data structure that records signed statements (such as manifests) in a way that enables auditing, monitoring, and detection of mis-issuance or equivocation.
 
  - [**Sigsum**](https://sigsum.org/) A transparency system based on simple, auditable logs and explicit witness cosigning, designed to provide verifiable publication without relying on centralized certificate authorities.
@@ -7,7 +34,7 @@
 
  - [**Content Security Policy (CSP)**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) A web security mechanism, expressed as an HTTP response header, that restricts the origins from which a web application may load resources such as scripts, styles, and workers.
 
- - **Cooldown** A time window (1 day during alpha stage; 7 days afterwards) during which an *enrollment change* for a given domain is monitorable, but still not applied and fully revertable.
+
 
 ### Parties
 
