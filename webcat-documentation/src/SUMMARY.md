@@ -2,7 +2,6 @@
 
 - [Introduction](./introduction.md)
 - [Concepts](./concepts.md)
-- [Getting Started](./getting-started.md)
 - [For Users](./for-users.md)
 - [For Site Operators](./site-operators/for-developers.md)
   - [Site Enrollment](./site-operators/enrollment.md)
