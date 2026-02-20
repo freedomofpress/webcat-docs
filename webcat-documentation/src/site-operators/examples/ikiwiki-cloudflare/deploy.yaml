@@ -1,0 +1,12 @@
+# .github/workflows/deploy.yaml
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ["src/.well-known/webcat/**"]
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/build-and-deploy.yaml
+    secrets: inherit
