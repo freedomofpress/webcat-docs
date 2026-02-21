@@ -1,0 +1,35 @@
+# .github/workflows/ikiwiki-with-manifest.yaml
+name: Update WEBCAT Manifest
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["src/.well-known/webcat/**"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-and-deploy.yaml
+    with:
+      upload_webcat_artifacts: true
+    secrets: inherit
+
+  webcat-manifest:
+    needs: build
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    uses: freedomofpress/webcat-cli/.github/workflows/webcat-generate-and-commit-manifest.yml@main
+    with:
+      manifest_path: src/.well-known/webcat/manifest.json
+
+  webcat-bundle:
+    needs: webcat-manifest
+    permissions:
+      contents: write
+    uses: freedomofpress/webcat-cli/.github/workflows/webcat-assemble-bundle.yaml@main
+    with:
+      enrollment_path: src/.well-known/webcat/enrollment.json
+      manifest_path: src/.well-known/webcat/manifest.json
+      bundle_path: src/.well-known/webcat/bundle.json

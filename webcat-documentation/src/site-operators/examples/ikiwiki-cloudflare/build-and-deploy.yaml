@@ -1,0 +1,72 @@
+# .github/workflows/build-and-deploy.yaml
+name: Build and Deploy
+
+on:
+  workflow_call:
+    inputs:
+      upload_webcat_artifacts:
+        type: boolean
+        required: false
+        default: false
+
+env:
+  DIST: dist
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history needed for --gettime and mtime restoration
+
+      - name: Set Git identity
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "<>"
+
+      - name: Install ikiwiki and supporting tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --quiet --yes ikiwiki
+
+      - name: Get submodules
+        run: git submodule update --init
+
+      - name: Restore mtimes
+        run: share/git-tools/git-restore-mtime
+
+      - name: Build site
+        run: ikiwiki --gettime --setup ikiwiki.setup
+
+      - name: Duplicate index as error page
+        working-directory: ${{ env.DIST }}
+        run: cp index.html 404.html
+
+      - name: Stamp version
+        if: inputs.upload_webcat_artifacts
+        run: |
+          VERSION="$(TZ=UTC git log -1 --format=%cd --date=format-local:'%Y.%m.%d.%H.%M.%S')"
+          jq --arg v "$VERSION" '.version = $v' webcat.config.json > webcat.config.json.tmp
+          mv webcat.config.json.tmp webcat.config.json
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ${{ env.DIST }} --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+
+      - name: Upload dist artifact
+        if: inputs.upload_webcat_artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: webcat-dist
+          path: dist
+
+      - name: Upload WEBCAT config
+        if: inputs.upload_webcat_artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: webcat-config
+          path: webcat.config.json
