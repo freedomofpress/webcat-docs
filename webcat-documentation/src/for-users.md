@@ -27,7 +27,7 @@ If an integrity or validation error occurs, the user will be redirected to a ded
 
 The error page displays a specific error code indicating at which stage of the validation process the issue occurred.
 
-[TODO screenshot]
+![Screenshot of enrollment-error.demo.webcat.tech being blocked.](./screenshots/extension-enrollment-error.jpg)
 
 You can test various validation and integrity error cases at:
 

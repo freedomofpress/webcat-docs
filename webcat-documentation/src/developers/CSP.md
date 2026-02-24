@@ -14,18 +14,21 @@ Only allowed attributes are:
  - `none`
  - `self`
  - `wasm-unsafe-eval`
-
-Note `sha-abc` format, while secure, breaks some assumptions about the sandbox and how the `WebAssembly` hooks work, thus it is not allowed, though this might change in the future.
+ - `sha256-xxx`
+ - `sha384-xxx`
+ - `sha512-xxx`
 
 ### style-src, style-src-elem
 Only allowed attirbutes are:
  - `none`
  - `self`
- - `sha-abc`
+ - `sha256-xxx`
+ - `sha384-xxx`
+ - `sha512-xxx`
  - `unsafe-inline`*
  - `unsafe-hashes`*
 
-* are allowed due to every tested application making use of it. When developing or updating a new application, if possible, it would be better to avoid it to ensure future compatibility, as the end goal is to eventually drop support for it.
+The source expression marked with `*` are currently allowed because all tested applications rely on it. However, when developing or updating an application, it is recommended to avoid using it whenever possible. The long-term goal is to phase out support for these source expressions to improve forward compatibility and tighten policy guarantees.
 
 ### object-src
 Only allowed attirbutes are:
