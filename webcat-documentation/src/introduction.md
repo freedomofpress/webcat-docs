@@ -7,7 +7,3 @@
 - If you're a developer wanting to contribute to the WEBCAT browser extension or infrastructure, check out [For Contributors](./contributors/index.html).
 - If you want to learn about the WEBCAT architecture, check out [Architecture](./architecture/index.html).
 - If you want to learn about running WEBCAT infrastructure, check out [For Infrastructure Operators](./for-infrastructure-operators.md).
-
-## Why WEBCAT Exists
-
-TK
