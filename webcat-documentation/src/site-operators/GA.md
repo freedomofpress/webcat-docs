@@ -80,7 +80,7 @@ Jobs, in order:
 2. **Generate manifest:** Generate and sign a new `manifest.json` (in a new pull
    request for review).
 
-3. **Assemble bundle:** Combine the manifest and Sigstore bundle into
+3. **Assemble bundle:** Combine the manifest and Sigstore enrollment into
    `bundle.json` (in a new pull request for review).
 
 #### 2. Publish
@@ -100,6 +100,12 @@ opens a pull request if it differs from the current `enrollment.json`.
 
 Merging the resulting pull request triggers the **Publish** workflow, which
 redeploys with the updated enrollment files.
+
+> [!NOTE]
+> `bundle.json` MUST be regenerated whenever either `manifest.json` or >
+> `enrollment.json` has changed. If `enrollment.json` has changed, you may have >
+> to manually trigger an update to `manifest.json` for the combined `bundle.json`
+> to pick up the changes.
 
 ## HTTP header alignment
 
