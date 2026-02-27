@@ -20,3 +20,14 @@ jobs:
       enrollment_prev_path: src/.well-known/webcat/enrollment-prev.json
       bundle_path: src/.well-known/webcat/bundle.json
       bundle_prev_path: src/.well-known/webcat/bundle-prev.json
+
+  webcat-bundle:
+    needs: sync
+    permissions:
+      contents: write
+
+    uses: freedomofpress/webcat-cli/.github/workflows/webcat-assemble-bundle.yaml@main
+    with:
+      enrollment_path: src/.well-known/webcat/enrollment.json
+      manifest_path: src/.well-known/webcat/manifest.json
+      bundle_path: src/.well-known/webcat/bundle.json
