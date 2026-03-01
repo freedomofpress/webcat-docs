@@ -1,6 +1,7 @@
 # Threat Model
 The WEBCAT threat model distinguishes between attacks that the system aims to **prevent**, and those it aims to **detect**. The goal is to ensure that all targeted attacks are preventable, and that all large-scale attacks are detectable. An attack is deemed successful if it causes end-user compromise in which users loads client-side assets (such as HTML, JavaScript, WebAssembly, or CSS) that was not authored or intended by the application developers. WEBCAT assumes a powerful adversary whose capabilities may extend to include control over infrastructure and over signing identities of application developers. An attacker may compromise a server or take over one or more domains, depending on jurisdiction and technical capabilities. Services, companies, and individual servers are more at risk from attacks, even by small threat actors, than core infrastructure. Known examples include the [jabber.ru MITM attack](https://notes.valdikss.org.ru/jabber.ru-mitm/) and the [MyEtherWallet BGP hijacking](https://www.theverge.com/2018/4/24/17275982/myetherwallet-hack-bgp-dns-hijacking-stolen-ethereum), and likely many more cases that went unnoticed, despite being potentially detectable. The distinction between preventable and detectable attacks is a tradeoff between a heuristic estimate of the probability of real-world attacks and the complexity of infrastructure and design.
 
+## Integrity Risks
 ### Preventable
 The system is designed to prevent end-user compromise even if an attacker gains control over:
  - **Web server**: Full control over the application server, including domain hijacking, BGP or MITM attacks, rogue TLS certificate issuance, or theft of TLS private keys (for a limited amount of time, < _cooldown_)
@@ -36,13 +37,13 @@ WEBCAT must not introduce additional single points of failure or censorship risk
 At present, WEBCAT supports only traditional domain names. However, support for Onion Services is planned on the roadmap. In that context, the censorship threat model becomes even more complex, and the system must be designed accordingly.
 
 
-### Censorship and the Enrollment System
+### Enrollment System
 
 The *WEBCAT enrollment system* is based on distributed consensus and requires a 2/3 majority to decide on enrollment (or non-enrollment). At the current alpha stage, the number of nodes is limited, and most are operated by the Freedom of the Press Foundation. This concentration represents a transitional configuration rather than a long-term situation.
 
 Beyond the alpha phase, the objective is to distribute the infrastructure across a broader ecosystem of trusted organizations that are geographically and jurisdictionally diverse. Even a distribution comparable in size to that of the Tor Directory Authorities (n=10) could provide a meaningful deterrent against coercion or censorship attempts.
 
-### Censorship and Transparency Logs (Sigstore and Sigsum)
+### Transparency Logs (Sigstore and Sigsum)
 Transparency logs, such as Sigstore and Sigsum, may theoretically be in a position to block a project from logging new manifests, thereby preventing updates to a web application. Such blocking could be a direct threat (e.g., refusal to log entries) or indirect (e.g., freezing attacks that prevent timely updates).
 
 While no documented cases of direct blocking are known to us, indirect forms of interference are plausible. For example, GitHub might suspend a project or user relying on Sigstore-based enrollment via CI workflows. Similarly, an OIDC provider might revoke access for a user relying on identity-based signing in Sigstore.
@@ -58,7 +59,7 @@ Although such migrations may be inconvenient, they remain technically possible w
 
 More broadly, we expect that censorship actors would find it easier to target DNS providers, domain registrars, or hosting platforms directly in order to achieve a takedown. WEBCAT operates as an additional verification layer on top of these systems and is, by design, less centralized than many of the infrastructures it relies upon.
 
-### Censorship and the Browser Extension
+### Browser Extension
 It is possible that WEBCAT update endpoints, currently hardcoded in the browser extension, could be blocked in certain jurisdictions. To mitigate this risk, each extension release bundles the most recent enrollment and update data, providing a fallback channel independent of runtime network access.
 
 The update mechanism may evolve in the future to reduce update frequency and bandwidth requirements, further minimizing exposure to network-level blocking. Moreover, update endpoints can be modified through regular extension updates.
