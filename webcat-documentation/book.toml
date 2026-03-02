@@ -2,3 +2,16 @@
 title = "WEBCAT"
 authors = ["redshiftzero"]
 language = "en"
+
+# The presence of the "html" output is required
+# if-and-only-if any other outputs are declared.
+[output.html]
+
+[output.linkcheck]
+# Perform GETs on public URls
+follow-web-links = true
+
+# Don't require the use of linkcheck; initial implementation showed
+# problems in macOS, see PR#15. If mdbook-linkcheck is installed, it'll be used,
+# which is the case in CI environments.
+optional = true

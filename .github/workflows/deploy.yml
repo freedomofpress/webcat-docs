@@ -25,21 +25,17 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Install Rust
-        uses: dtolnay/rust-toolchain@stable
+      - name: install nix
+        uses: nixbuild/nix-quick-install-action@v34
 
-      - name: Cache cargo bin
-        uses: actions/cache@v4
+      - name: setup nix cache
+        uses: nix-community/cache-nix-action@v7
         with:
-          path: ~/.cargo/bin
-          key: ${{ runner.os }}-mdbook
-
-      - name: Install mdbook
-        run: cargo install mdbook --force
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix') }}
+          restore-prefixes-first-match: nix-${{ runner.os }}-
 
       - name: Build the book
-        working-directory: webcat-documentation
-        run: mdbook build
+        run: nix develop --command just build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -47,7 +43,10 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: webcat-documentation/book
+          # By default, the path "webcat-documentation/book/" will contain the HTML output;
+          # however, if multiple output builders are enabled, such as "mdbook-linkcheck",
+          # then the subdir "html" will be used.
+          path: webcat-documentation/book/html
 
       - name: Deploy to GitHub Pages
         id: deployment
