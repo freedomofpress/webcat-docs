@@ -6,7 +6,7 @@ Available online at: https://docs.webcat.tech
 ## Setup
 
 ```bash
-cargo install mdbook
+cargo install mdbook mdbook-linkcheck
 ```
 
 ## Serve
