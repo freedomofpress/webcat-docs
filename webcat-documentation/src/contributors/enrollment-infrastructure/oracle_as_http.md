@@ -3,7 +3,7 @@
 Instead of using the CLI, you can run the oracle as an HTTP server that accepts observation requests via API:
 
 ```bash
-cargo run --bin felidae oracle server \
+felidae oracle server \
   --homedir /persistent/keys \
   --node http://localhost:26657 \
   --bind 127.0.0.1:8081
