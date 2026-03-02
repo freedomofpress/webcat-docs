@@ -1,6 +1,8 @@
 # For Site Operators
 If you are developing and hosting your own web application, you should first refer to the [Developer Documentation](../developers/README.md). If you are hosting a third party web application, they should provide their own instructions for deployment.
 
+> We are working to make this process more clear, accessible and straightforward. We welcome feedback on the [documentation, in its repo](https://github.comn/freedomofpress/webcat-docs). If you are a developer or a website administrator and have issues following this process, feel free to file an issue in the [extension Github repository](https://github.com/freedomofpress/webcat).
+
 ## Getting Started
 As introduced in the [Introduction](../introduction.md), WEBCAT need two main configuration and metadata files for enrolling into the system and provide all the necessary information to browsers for verification. 
 
@@ -34,7 +36,6 @@ This information has to be recorded and validated in the [*enrollment system*](.
 
 It is reccomended to generate the `enrollment.json` file using either the _webcat-cli_ or the provided Github Actions, and more detailed instructions follow below.
 
-TODO: debugging/help with enrollment instruction.
 
 ### Manifest
 A WEBCAT manifest describes a web application by listing its files, cryptographic hashes, CSP policies, and additional metadata useful for auditability. It has to be served at `/.well-known/webcat/enrollment.json`

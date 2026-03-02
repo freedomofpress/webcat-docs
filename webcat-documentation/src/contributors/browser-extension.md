@@ -1,5 +1,7 @@
 # Browser Extension
 
+> We are currently working on this section. The WEBCAT extension source code has a good amount of comments, and can be a a starting point in the meantime.
+
 ## Testing
 ### Information
 
