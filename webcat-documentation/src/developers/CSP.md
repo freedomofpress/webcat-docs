@@ -7,7 +7,7 @@ Only allowed attributes are:
  - `self`
  - `none`
 
-If `default-src` is not `none`, than it is required to specify `object-src`, `child-src` or `frame-src` and `worker-src`. A `default-src` that contains `none` but also other keywords is not treated as `none` (#99)[https://github.com/freedomofpress/webcat/issues/99].
+If `default-src` is not `none`, than it is required to specify `object-src`, `child-src` or `frame-src` and `worker-src`. A `default-src` that contains `none` but also other keywords is not treated as `none` [#99](https://github.com/freedomofpress/webcat/issues/99).
 
 ### script-src, script-src-elem
 Only allowed attributes are:
