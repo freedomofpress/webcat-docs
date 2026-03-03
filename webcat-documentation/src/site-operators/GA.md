@@ -25,7 +25,7 @@ The following files must be served from your site's `/.well-known/webcat/` path:
 | `manifest.json`                              | The [manifest][concepts]               |
 | `bundle.json` and `bundle-prev.json`         | The [bundle][concepts]                 |
 
-[concepts]: ../concepts.md
+[concepts]: ../concepts/
 
 All of these files are committed to the source repository. They are updated as
 part of the WEBCAT-provided GitHub Actions workflows, not regenerated from

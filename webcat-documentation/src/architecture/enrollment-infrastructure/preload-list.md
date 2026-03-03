@@ -11,14 +11,18 @@ The WEBCAT extension does not trust a specific validator. Instead, it verifies t
 
 The latest `LightBlock` is posted daily:
 
-* [https://webcat.freedom.press/block.json](https://webcat.freedom.press/block.json)
+```
+https://webcat.freedom.press/block.json
+```
 
 This `LightBlock` contains a signed `AppHash` by the validator set. Clients
 verify the state is signed by at least 2/3 of the validator set prior to usage.
 
 The latest snapshot of the canonical state is posted daily to:
 
-* [https://webcat.freedom.press/list.json](https://webcat.freedom.press/list.json)
+```
+https://webcat.freedom.press/list.json
+```
 
 The snapshot of the canonical state contains:
 

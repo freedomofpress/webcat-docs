@@ -5,4 +5,4 @@ This section is for anyone running or operating WEBCAT infrastructure (validator
 TK
 
 - [WEBCAT Validator Operator](./contributors/validator-operator.md)
-- [Enrollment Infrastructure Architecutre](./architecture/enrollment-infrastructure/README.md)
+- [Enrollment Infrastructure Architecutre](./architecture/enrollment-infrastructure.md)

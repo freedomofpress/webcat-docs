@@ -34,7 +34,6 @@ EOF
 ### Create a WEBCAT config file
 Write a `webcat.config.json` file. All the fields in the example are mandatory as keys, though their values can be empty. For instance, `wasm` has to be an array, but can be empty. Choose a content security policy according to the [CSP guide](../developers/CSP.md).
 
-```
 cat > webcat.config.json <<EOF
 {
   "app": "https://github.com/element-hq/element-web",
@@ -48,7 +47,6 @@ cat > webcat.config.json <<EOF
   "extra_csp": {}
 }
 EOF
-```
 
 ### Create enrollment.json
 

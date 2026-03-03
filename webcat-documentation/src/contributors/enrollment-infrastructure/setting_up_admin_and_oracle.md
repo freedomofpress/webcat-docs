@@ -3,7 +3,7 @@
 ### 1. Generate Configuration Template
 
 ```
-felidae admin template > config.json
+cargo run --bin felidae admin template > config.json
 ```
 
 This generates a configuration template (see the Config proto) that you'll edit to add your own keys as an admin and oracle.
@@ -11,25 +11,25 @@ This generates a configuration template (see the Config proto) that you'll edit 
 ### 2. Generate Your Admin and Oracle Keypairs
 
 ```
-felidae admin init
+cargo run --bin felidae admin init
 ```
 
 This creates your admin keypair. To view your admin public key:
 
 ```
-felidae admin identity
+cargo run --bin felidae admin identity
 ```
 
 Similarly for oracle:
 
 ```
-felidae oracle init
+cargo run --bin felidae oracle init
 ```
 
 To view your oracle public key:
 
 ```
-felidae oracle identity
+cargo run --bin felidae oracle identity
 ```
 
 ### 3. Configure config.json
@@ -116,7 +116,7 @@ The endpoint is used by frontends to know where to submit enrollment requests to
 ### 4. Submit Configuration to Chain
 
 ```
-felidae admin config config.json --chain <CHAIN_ID>
+cargo run --bin felidae admin config config.json --chain <CHAIN_ID>
 ```
 
 Replace `<CHAIN_ID>` with the chain ID from `~/.cometbft/config/genesis.json`.
@@ -132,7 +132,7 @@ curl http://localhost:8080/config
 You can now submit oracle observations. For example:
 
 ```
-felidae oracle observe --domain element.nym.re. --zone nym.re.
+cargo run --bin felidae oracle observe --domain element.nym.re. --zone nym.re.
 ```
 
 If you omit the --zone, the oracle will automatically infer the zone from the domain using the [Mozilla Public Suffix List (PSL)](https://publicsuffix.org/).
