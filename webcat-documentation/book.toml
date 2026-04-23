@@ -3,9 +3,12 @@ title = "WEBCAT"
 authors = ["redshiftzero"]
 language = "en"
 
+
+
 # The presence of the "html" output is required
 # if-and-only-if any other outputs are declared.
 [output.html]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
 
 [output.linkcheck]
 # Perform GETs on public URls
@@ -19,3 +22,8 @@ optional = true
 # Exclude specific domains from linkcheck scans.
 # Usually these sites restrict access from automated contexts.
 exclude = ['dl\.acm\.org']
+
+[preprocessor]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
