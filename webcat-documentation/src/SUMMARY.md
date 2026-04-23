@@ -16,6 +16,7 @@
     - [Censorship](./architecture/enrollment-infrastructure/censorship.md)
     - [Transparency](./architecture/enrollment-infrastructure/transparency.md)
     - [Enrollment Preload List](./architecture/enrollment-infrastructure/preload-list.md)
+    - [Validator Status Tracking](./architecture/enrollment-infrastructure/validator-status-tracking.md)
 - [For Contributors](./contributors/README.md)
   - [Enrollment Infrastructure](./contributors/enrollment-infrastructure.md)
     - [Getting Started](./contributors/enrollment-infrastructure/getting_started.md)
