@@ -4,9 +4,9 @@ This page documents how the enrollment chain tracks validator status, how valida
 jailed for downtime and tombstoned for equivocation, and how jailed validators
 are automatically unjailed once their uptime recovers.
 
-## The four states
+## Validator states
 
-Every validator the chain has ever seen is in exactly one of four states,
+Every validator the chain has ever seen is in one of four states,
 tracked in the consensus state under the key
 `current/validator_status/{pub_key_hex}`:
 
@@ -26,7 +26,7 @@ happens automatically when the validator's uptime recovers.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Active: 0 declare
+    [*] --> Active: 0
 
     Active --> Inactive   : 1
     Active --> Jailed     : 2
@@ -40,7 +40,8 @@ stateDiagram-v2
     Jailed --> Inactive   : 8
 ```
 
-All eight transitions are driven from the ABCI `FinalizeBlock` handler.
+The initial validator set is declared in `InitChain`, all subsequent transitions are driven
+from the ABCI `FinalizeBlock` handler.
 
 | #   | Transition              | Trigger                                                  | Handler                                                        |
 | --- | ----------------------- | -------------------------------------------------------- | -------------------------------------------------------------- |
