@@ -15,3 +15,7 @@ follow-web-links = true
 # problems in macOS, see PR#15. If mdbook-linkcheck is installed, it'll be used,
 # which is the case in CI environments.
 optional = true
+
+# Exclude specific domains from linkcheck scans.
+# Usually these sites restrict access from automated contexts.
+exclude = ['dl\.acm\.org']
