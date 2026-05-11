@@ -3,9 +3,12 @@ title = "WEBCAT"
 authors = ["redshiftzero"]
 language = "en"
 
+
+
 # The presence of the "html" output is required
 # if-and-only-if any other outputs are declared.
 [output.html]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
 
 [output.linkcheck]
 # Perform GETs on public URls
@@ -15,3 +18,8 @@ follow-web-links = true
 # problems in macOS, see PR#15. If mdbook-linkcheck is installed, it'll be used,
 # which is the case in CI environments.
 optional = true
+
+[preprocessor]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
