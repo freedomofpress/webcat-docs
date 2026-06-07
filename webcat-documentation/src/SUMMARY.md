@@ -10,6 +10,7 @@
   - [App requirements](./webapp-developers/requirements.md)
   - [CSP](./webapp-developers/CSP.md)
   - [Examples](./webapp-developers/examples.md)
+- [webcat-cli Reference](./webcat-cli.md)
 - [Architecture](./architecture/README.md)
   - [Enrollment infrastructure](./architecture/enrollment-infrastructure/README.md)
     - [Key entities and behaviors](./architecture/enrollment-infrastructure/key-entities.md)
