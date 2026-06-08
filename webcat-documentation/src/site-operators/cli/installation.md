@@ -1,7 +1,7 @@
 ## Requirements
 
 - Node.js 20 or newer.
-- `sigsum-submit` must be available on your `$PATH` for `manifest sign` operations. (See the [installation instructions][#installation] below.)
+- `sigsum-submit` must be available on your `$PATH` for `manifest sign` operations. (See the [installation instructions](#installation) below.)
 - A Sigsum trust policy and keypair for signing manifests.
 - An OIDC identity token in the environment (CI-supported) or interactive login for `manifest sign --type sigstore`.
 
