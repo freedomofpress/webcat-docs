@@ -1,5 +1,7 @@
-# Manual signing
-The following procedure describes how to use the WEBCAT CLI to generate enrollment and metadata information for WEBCAT.
+# Manual Signing
+The following procedure describes how to use the WEBCAT CLI to generate enrollment and metadata information for WEBCAT. It uses Sigsum.
+
+> For full command and flag details, see the [`webcat-cli` reference](./cli/README.md). For a condensed, copy-pasteable version of this same workflow, see the [end-to-end example](./cli/end-to-end.md).
 
 ### Create Sigsum Keys
 
@@ -32,7 +34,7 @@ EOF
 ```
 
 ### Create a WEBCAT config file
-Write a `webcat.config.json` file. All the fields in the example are mandatory as keys, though their values can be empty. For instance, `wasm` has to be an array, but can be empty. Choose a content security policy according to the [CSP guide](../webapp-developers/CSP.md).
+Write a `webcat.config.json` file. All the fields in the example are mandatory as keys, though their values can be empty. For instance, `wasm` has to be an array, but can be empty. Choose a content security policy according to the [CSP guide](../developers/CSP.md). See the [`webcat.config.json` schema](./cli/config-schema.md) for a description of each field.
 
 ```
 cat > webcat.config.json <<EOF
