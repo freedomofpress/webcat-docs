@@ -1,4 +1,4 @@
-## Manifest helpers
+# Manifest Commands
 
 The `manifest` namespace operates on WEBCAT manifests:
 
@@ -26,7 +26,7 @@ Example – verify a bundle:
 npx webcat manifest verify examples/bundle.json
 ```
 
-### Sigstore signing
+## Sigstore signing
 
 Sigstore signing defaults to the community Fulcio/Rekor services. You can override the
 endpoints with `--fulcio-url`, `--rekor-url`, and `--tsa-url` when signing.

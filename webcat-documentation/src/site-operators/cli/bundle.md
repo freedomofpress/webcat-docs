@@ -1,4 +1,4 @@
-## Bundle helpers
+# Bundle Commands
 
 Use `bundle create` to combine an enrollment and a manifest (with signatures) into a WEBCAT bundle that can be distributed to verifiers:
 

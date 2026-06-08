@@ -1,18 +1,8 @@
-## Using the CLI
+# End-to-End Example
 
-### If you are using Sigsum
+This example walks through the full **Sigsum** signing workflow with the CLI. If you are using **Sigstore** instead, you generally do not run these steps manually — see [GitHub Actions](../GA.md).
 
-Take a look at [`demo.sh`](https://github.com/freedomofpress/webcat-cli/blob/main/demo.sh) or the [end-to-end example] below.
-
-[end-to-end example]: #end-to-end-example-based-on-demosh
-
-### If you are using Sigstore
-
-Refer to the GitHub Actions described above.
-
-## End-to-end example (based on `demo.sh`)
-
-The repository includes [`demo.sh`](https://github.com/freedomofpress/webcat-cli/blob/main/demo.sh), which exercises the full workflow. The commands
+The webcat-cli repository includes [`demo.sh`](https://github.com/freedomofpress/webcat-cli/blob/main/demo.sh), which exercises the full workflow. The commands
 below mirror that script so you can quickly test the CLI end to end:
 
 ```sh

@@ -1,4 +1,4 @@
-## Decide and prepare enrollment information
+# Choosing Sigsum or Sigstore
 
 A WEBCAT manifest describes a web application by listing its files, cryptographic hashes, CSP policies, and additional metadata useful for auditability. But how is this information verified?
 
@@ -14,7 +14,7 @@ Keep this in mind: if you make a mistake, you may need to wait before updating t
 
 The first decision you must make is whether to use **Sigsum** or **Sigstore**.
 
-### Choosing Sigsum
+## Choosing Sigsum
 
 [Sigsum](https://www.sigsum.org/), developed by [Glasklar Teknik](https://www.glasklarteknik.se/), provides:
 
@@ -33,9 +33,9 @@ However, due to current tooling limitations, Sigsum is less convenient for fully
 
 To learn more about Sigsum and how to write a policy, see Sigsum's [_Getting Started_](https://www.sigsum.org/getting-started/) guide.
 
-### Choosing Sigstore
+## Choosing Sigstore
 
-If you choose Sigstore, WEBCAT provides GitHub Actions that support automated deployments.
+If you choose Sigstore, WEBCAT provides GitHub Actions that support automated deployments (see [GitHub Actions](../GA.md)).
 
 > [!WARNING]
 > Sigstore support is still a work in progress. Claim-based enrollment constraints are supported.
@@ -58,4 +58,4 @@ The Sigstore workflow consists of two actions:
 
   * Generates, signs, and bundles a WEBCAT manifest
 
-See the `webcat-demo-test` repository for a complete, end-to-end example of this flow. Note: due to how the Sigstore is claimed in Github Action, this has to be copied in the target repository and should not be invoked directly from the webcat0-cli one.
+See the `webcat-demo-test` repository for a complete, end-to-end example of this flow. Note: due to how Sigstore is claimed in the GitHub Action, this has to be copied into the target repository and should not be invoked directly from the `webcat-cli` one.
