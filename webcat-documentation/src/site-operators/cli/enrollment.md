@@ -1,4 +1,4 @@
-## Enrollment helpers
+# Enrollment Commands
 
 The `enrollment` namespace manages Sigsum or Sigstore enrollment payloads. Sigsum enrollments
 are the default; use `--type sigstore` along with Sigstore claim constraints (`--claim`

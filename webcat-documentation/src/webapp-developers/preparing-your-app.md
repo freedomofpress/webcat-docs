@@ -1,4 +1,4 @@
-## Prepare the web application for compatibility
+# Prepare the web application for compatibility
 
 Before anything else, you should evaluate whether your website or web application is compatible with WEBCAT. There are a few strict requirements:
 
@@ -12,4 +12,4 @@ See the following examples and porting guides (outdated):
  - [Globaleaks](https://github.com/freedomofpress/webcat/tree/main/apps/globaleaks)
  - [Jitsi](https://github.com/freedomofpress/webcat/tree/main/apps/jitsi)
 
-At the end, you should have compiled a `webcat.config.json` base file for your use case.
+At the end, you should have compiled a [`webcat.config.json`](../site-operators/cli/config-schema.md) base file for your use case.
