@@ -4,7 +4,7 @@ Before anything else, you should evaluate whether your website or web applicatio
 
 * The frontend **must be fully static** (i.e., no server-generated HTML, JavaScript, or CSS).
 * **No inline JavaScript** is allowed.
-* A **Content Security Policy (CSP)** must be provided via an HTTP header and must satisfy specific constraints (see: [CSP Guide](https://github.com/freedomofpress/webcat/blob/main/docs/DeveloperGuide.md), [explanation blog post](https://securedrop.org/news/webcat-towards-auditable-web-application-runtimes/)).
+* A **Content Security Policy (CSP)** must be provided via an HTTP header and must satisfy specific constraints (see: [CSP Guide](./CSP.md), [explanation blog post](https://securedrop.org/news/webcat-towards-auditable-web-application-runtimes/)).
 
 See the following examples and porting guides (outdated):
  - [Cryptpad](https://github.com/freedomofpress/webcat/tree/main/apps/cryptpad)

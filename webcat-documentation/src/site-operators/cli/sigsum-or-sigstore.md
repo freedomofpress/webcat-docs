@@ -37,8 +37,7 @@ To learn more about Sigsum and how to write a policy, see Sigsum's [_Getting Sta
 
 If you choose Sigstore, WEBCAT provides GitHub Actions that support automated deployments (see [GitHub Actions](../GA.md)).
 
-> [!WARNING]
-> Sigstore support is still a work in progress. Claim-based enrollment constraints are supported.
+> **Warning:** Sigstore support is still a work in progress. Claim-based enrollment constraints are supported.
 
 In theory, WEBCAT also supports a bring-your-own Sigstore deployment. This is not documented here due to its complexity. This guide assumes you are using the Sigstore [_Public Good_ instance](https://openssf.org/blog/2023/10/03/running-sigstore-as-a-managed-service-a-tour-of-sigstores-public-good-instance/), the same one used by GitHub and public container registries.
 
@@ -51,8 +50,7 @@ The Sigstore workflow consists of two actions:
   * Submits the updated enrollment for re-evaluation by the distributed system
     *(This submission step will soon be integrated directly into the CLI.)*
 
-> [!CAUTION]
-> Sigstore enrollments support claim-based constraints using certificate extension OIDs.
+> **Caution:** Sigstore enrollments support claim-based constraints using certificate extension OIDs.
 
 * Manifest Update Action - [Example Usage](https://github.com/freedomofpress/webcat-demo-test/blob/main/.github/workflows/generate-sign-sigstore-manifest.yaml)
 
