@@ -1,59 +1,60 @@
 # CSP
-Due to the the requirements explained in the previous section, WEBCAT has some CSP requirements, outlined below. In addition to the limitations of the CSP policy itself, due to the complexity derived from different browser parsing behaviors, WEBCAT does not allow multiple `Content-Security-Policy` headers nor multiple comma-separated policies in the same header. This might change in the future, but it is currently not supported.
+Due to the the requirements explained in the previous section, WEBCAT enforces certain CSP restrictions, outlined below. In addition to enforcing restrictions on individual policies, WEBCAT disallows multiple `Content-Security-Policy` headers and multiple comma-separated policies in the same header. This may change in the future.
 
 ## Restrictions
 ### default-src
-Only allowed attributes are:
- - `self`
- - `none`
+The only allowed source expressions are:
+ - `'self'`
+ - `'none'`
 
-If `default-src` is not `none`, than it is required to specify `object-src`, `child-src` or `frame-src` and `worker-src`. A `default-src` that contains `none` but also other keywords is not treated as `none` [#99](https://github.com/freedomofpress/webcat/issues/99).
+If the value of the `default-src` directive is not `'none'`, it is required to specify `object-src`, `child-src` or `frame-src`, and `worker-src`. A `default-src` whose source list contains `'none'` but also other source expressions is not treated as `'none'` (See [#99](https://github.com/freedomofpress/webcat/issues/99)).
 
 ### script-src, script-src-elem
-Only allowed attributes are:
- - `none`
- - `self`
- - `wasm-unsafe-eval`
- - `sha256-xxx`
- - `sha384-xxx`
- - `sha512-xxx`
+The only allowed source expressions are:
+ - `'none'`
+ - `'self'`
+ - `'wasm-unsafe-eval'`
+ - `'sha256-<digest>'`
+ - `'sha384-<digest>'`
+ - `'sha512-<digest>'`
 
 ### style-src, style-src-elem
-Only allowed attirbutes are:
- - `none`
- - `self`
- - `sha256-xxx`
- - `sha384-xxx`
- - `sha512-xxx`
- - `unsafe-inline`*
- - `unsafe-hashes`*
+The only allowed source expressions are:
+ - `'none'`
+ - `'self'`
+ - `'sha256-<digest>'`
+ - `'sha384-<digest>'`
+ - `'sha512-<digest>'`
+ - `'unsafe-inline'`\*
+ - `'unsafe-hashes'`\*
 
-The source expression marked with `*` are currently allowed because all tested applications rely on it. However, when developing or updating an application, it is recommended to avoid using it whenever possible. The long-term goal is to phase out support for these source expressions to improve forward compatibility and tighten policy guarantees.
+\* These source expressions are currently allowed because all tested applications rely on them. However, when developing or updating an application, it is recommended to avoid using them whenever possible. The long-term goal is to phase out support for these source expressions to improve forward compatibility and tighten policy guarantees.
 
 ### object-src
-Only allowed attirbutes are:
- - `none`
+The only allowed source expressions are:
+ - `'none'`
 
-Must be `'none`' if `default-src` is not `'none'`, otherwise it can be omitted.
+The value must be `'none`' if `default-src` is not `'none'`, otherwise it may be omitted.
 
 ### frame-src, child-src
-Only allowed attirbutes are:
- - `none`
- - `self`
+The only allowed source expressions are:
+ - `'none'`
+ - `'self'`
  - `blob:`
  - `data:`
- - `<external sources>`*
+ - `<host>`\*
+ - `<URL>`\*
 
-* external sources needs to be enrolled in WEBCAT too. At manifest parsing, it is checked whether any external origin is enrolled, or the validation fails. Then, upon loading, any external origin is fully validated th same as the main_frame.
+\* Host and URL sources must also be enrolled in WEBCAT. At manifest parsing, it is checked whether any external origin is enrolled, or the validation fails. Upon loading, any external origin is fully validated.
 
-Either one of the two must be set if `default-src` is not `'none'`, otherwise it can be omitted.
+Either `frame-src` or `child-src` must be set if `default-src` is not `'none'`, otherwise it may be omitted.
 
 ### worker-src
-Only allowed attirbutes are:
- - `none`
- - `self`
+The only allowed attributes are:
+ - `'none'`
+ - `'self'`
 
-Must be set if `default-src` is not `'none'`, otherwise it can be omitted.
+The `worker-src` directive must be set if `default-src` is not `'none'`, otherwise it can be omitted.
 
-### Everything else (img-src, connect-src, etc)
-Everything else does not currently have limitations.
+### Everything else (img-src, connect-src, etc.)
+Other directives do not currently have limitations.
