@@ -1,9 +1,13 @@
-# Browser Extension
+# Browser extension
 
-> We are currently working on this section. The WEBCAT extension source code has a good amount of comments, and can be a a starting point in the meantime.
+## To start building
+
+Within the [WEBCAT code repo](https://github.com/freedomofpress/webcat), refer to the [extension README](https://github.com/freedomofpress/webcat/tree/main/extension#readme) and source code comments.
+
+The WEBCAT browser extension is [available as a Firefox addon](https://addons.mozilla.org/en-US/firefox/addon/webcat/).
 
 ## Testing
-### Information
+### Overview
 
 The extension provides some testing infrastructure. When built and packaged for testing, some functionality is mocked. As such, testing mode is not currently able to cover all production cases.
 
