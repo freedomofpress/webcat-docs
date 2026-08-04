@@ -1,4 +1,4 @@
-# Query Interface
+# Query interface
 
 The WEBCAT ABCI application, Felidae, exposes a read only HTTP API for querying chain state. All endpoints use GET.
 

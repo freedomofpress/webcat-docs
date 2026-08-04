@@ -1,2 +1,2 @@
-# WEBCAT Validator Operator
+# WEBCAT validator operator
 

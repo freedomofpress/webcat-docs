@@ -1,4 +1,4 @@
-# Getting Started
+# Getting started
 
 You'll need to install the following tools:
 

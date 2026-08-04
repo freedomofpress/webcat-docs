@@ -1,6 +1,6 @@
-# Setting Up Admin and Oracle
+# Setting up admin and oracle
 
-### 1. Generate Configuration Template
+### 1. Generate configuration template
 
 ```
 felidae admin template > config.json
@@ -8,7 +8,7 @@ felidae admin template > config.json
 
 This generates a configuration template (see the Config proto) that you'll edit to add your own keys as an admin and oracle.
 
-### 2. Generate Your Admin and Oracle Keypairs
+### 2. Generate your admin and oracle keypairs
 
 ```
 felidae admin init
@@ -113,7 +113,7 @@ The endpoint is used by frontends to know where to submit enrollment requests to
 }
 ```
 
-### 4. Submit Configuration to Chain
+### 4. Submit configuration to chain
 
 ```
 felidae admin config config.json --chain <CHAIN_ID>
@@ -127,7 +127,7 @@ Once the chain accepts this transaction, you'll be configured as both admin and 
 curl http://localhost:8080/config
 ```
 
-### 5. Post an Oracle Observation
+### 5. Post an oracle observation
 
 You can now submit oracle observations. For example:
 

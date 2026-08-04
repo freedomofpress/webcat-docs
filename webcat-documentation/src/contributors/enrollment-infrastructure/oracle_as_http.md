@@ -1,4 +1,4 @@
-# Run Oracle as HTTP Server
+# Run oracle as HTTP server
 
 Instead of using the CLI, you can run the oracle as an HTTP server that accepts observation requests via API:
 

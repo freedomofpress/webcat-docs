@@ -2,7 +2,7 @@
 
 WEBCAT is a system for verifying the provenance of static web assets. The motivation is to solve the "[Javascript cryptography considered harmful](https://web.archive.org/web/20200731144044/https://www.nccgroup.com/us/about-us/newsroom-and-events/blog/2011/august/javascript-cryptography-considered-harmful/)" problem, making E2EE via the web more secure.
 
-## Quick Start
+## Quick start
 
 Get started here if you are a
 - [User](./for-users.md) wanting to test the WEBCAT browser extension

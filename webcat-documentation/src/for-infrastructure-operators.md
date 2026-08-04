@@ -1,4 +1,4 @@
-# For Infrastructure Operators
+# For infrastructure operators
 
 This section is for anyone running or operating WEBCAT infrastructure (validators, oracles, enrollment chain).
 
