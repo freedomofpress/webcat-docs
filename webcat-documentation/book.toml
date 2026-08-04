@@ -27,3 +27,4 @@ exclude = ['dl\.acm\.org']
 
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
+
