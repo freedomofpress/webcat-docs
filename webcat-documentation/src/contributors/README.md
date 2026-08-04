@@ -1,4 +1,4 @@
-# For Contributors
+# For contributors
 
 This section is for anyone contributing to WEBCAT development.
 
