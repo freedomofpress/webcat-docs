@@ -10,7 +10,7 @@ language = "en"
 [output.html]
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
 
-[output.linkcheck]
+[output.linkcheck2]
 # Perform GETs on public URls
 follow-web-links = true
 
