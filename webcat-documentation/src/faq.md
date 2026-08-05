@@ -55,7 +55,7 @@ TODO provide some numbers here
 
 ### How do I enroll my site in WEBCAT?
 
-You can use the enrollment frontend.
+You can use the [enrollment frontend](https://enroll.webcat.tech/). Refer to the [website operators](./site-operators/) documentation.
 
 ### Is there a cost to enroll my site?
 

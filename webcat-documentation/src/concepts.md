@@ -1,6 +1,8 @@
-### Glossary
+# Concepts
 
-#### WEBCAT
+## Glossary
+
+### WEBCAT
 
  * **Enrollment information** A structured JSON document containing the WEBCAT enrollment data, as defined by the WEBCAT specification. Participating site operators MUST serve this document at `/.well-known/webcat/enrollment.json`, and MUST submit an update to the *enrollment system* every time it changes.
  The *enrollment system* performs basic validation and records a cryptographic hash of the enrollment information. After a mandatory *cooldown* period, during which the enrollment information MUST remain unchanged, the information is verified again and, if valid, committed to the *enrollment system*.
@@ -24,7 +26,7 @@
  * **Cooldown** A fixed time window during which a proposed *enrollment information* change for a given domain is publicly observable but not yet applied. During this period, the change is fully revertible.
  The cooldown duration is 1 day during the alpha stage and 7 days thereafter.
 
-#### Existing Components
+### Existing components
 
  - **Transparency Log** An append-only, publicly verifiable data structure that records signed statements (such as manifests) in a way that enables auditing, monitoring, and detection of mis-issuance or equivocation.
 
@@ -33,7 +35,6 @@
  - [**Sigstore**](https://sigstore.dev/) A signing and transparency ecosystem that binds signatures to identities derived from federated identity providers (e.g., OIDC), typically using short-lived certificates and public transparency logs.
 
  - [**Content Security Policy (CSP)**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) A web security mechanism, expressed as an HTTP response header, that restricts the origins from which a web application may load resources such as scripts, styles, and workers.
-
 
 
 ### Parties
