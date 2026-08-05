@@ -1,7 +1,7 @@
 # Examples
 We have tentatively ported a few selected open-source web application to prove their potential compatibility with WEBCAT. No official support is provided. As such, administrators are discouraged from deploying these applications without prior testing and understanding that updates might break compatibility or require significant additional work.
 
-### Test App
+### Test app
  - [URL](https://test.demo.webcat.tech/)
  - [Source Code](https://github.com/freedomofpress/webcat-demo-test)
  - [webcat.config.json](https://github.com/freedomofpress/webcat-demo-test/blob/main/webcat.config.json)

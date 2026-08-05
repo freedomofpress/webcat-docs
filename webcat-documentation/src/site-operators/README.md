@@ -1,9 +1,9 @@
-# For Site Operators
-If you are developing and hosting your own web application, you should first refer to the [Developer Documentation](../developers). If you are hosting a third party web application, they should provide their own instructions for deployment.
+# For site operators
+If you are developing and hosting your own web application, you should first refer to the [Developer Documentation](../webapp-developers). If you are hosting a third party web application, they should provide their own instructions for deployment.
 
 > We are working to make this process more clear, accessible and straightforward. We welcome feedback on the [documentation, in its repo](https://github.com/freedomofpress/webcat-docs). If you are a developer or a website administrator and have issues following this process, feel free to file an issue in the [extension Github repository](https://github.com/freedomofpress/webcat).
 
-## Getting Started
+## Getting started
 As introduced in the [Introduction](../introduction.md), WEBCAT need two main configuration and metadata files for enrolling into the system and provide all the necessary information to browsers for verification. 
 
 ## Installing the tools

@@ -1,4 +1,4 @@
-# Manual Signing
+# Manual signing
 The following procedure describes how to use the WEBCAT CLI to generate enrollment and metadata information for WEBCAT.
 
 ### Create Sigsum Keys

@@ -1,4 +1,4 @@
-## Github Actions Automation
+## Github actions automation
 
 Site enrollment is the process of:
 

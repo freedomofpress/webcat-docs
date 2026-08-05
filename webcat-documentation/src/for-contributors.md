@@ -1,10 +1,10 @@
-# For Contributors
+# For contributors
 
 This section is for anyone contributing to WEBCAT as an engineer or infrastructure
 operator.
 
-## Enrollment Infrastructure Development
+## Enrollment infrastructure development
 
 See [Enrollment Infrastructure](./architecture/README.md#enrollment-infrastructure) in the Architecture section for the WEBCAT infra chain design, setup, and operations (validators, oracles, admins, CometBFT, and development roadmap).
 
-## Enrollment Infrastructure Operator
+## Enrollment infrastructure operator

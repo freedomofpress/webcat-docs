@@ -15,7 +15,7 @@ This enables a clear separation between:
 
 For example, JSON files containing static application strings (such as translations) may be listed in the manifest, while REST API endpoints returning dynamic application data should not.
 
-## Auditability and Commitment
+## Auditability and commitment
 
 Any asset subject to integrity verification MUST NOT be able to execute code that was not included at manifest generation and signing time. As a result, dynamic code execution mechanisms, such as `eval()` or instantiating Workers from `blob:` URLs, are disallowed.
 
@@ -25,7 +25,7 @@ This constraint introduces some trade-offs. It disallows certain common patterns
 
 While it is theoretically possible to download such scripts and include them as static application assets, doing so is fragile: the upstream code may change at any time, breaking functionality, and it may not be compatible with the CSP restrictions required by WEBCAT. Moreover, including large, opaque, and obfuscated code blobs undermines WEBCAT's auditability and monitoring goals.
 
-## HTTP Server Headers Restriction
+## HTTP server headers restriction
 Some HTTP headers can influence the execution environment of a webpage, and as such, they might be limited.
 
  - *Location* header is limited at relative redirect. It supports only redirects starting with `/`, `./` and `../`.

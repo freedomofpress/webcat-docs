@@ -1,6 +1,6 @@
-# For Users
+# For users
 
-## Getting Started
+## Getting started
 
 Users can install the WEBCAT extension via the Mozilla Add-ons Store (AMO). Firefox is currently the only supported browser.
 
@@ -10,7 +10,7 @@ The extension is currently untested on Firefox for Android and is known not to w
 
 Once installed, the extension runs autonomously in the background without any further configuration.
 
-### Successful Validation
+### Successful validation
 
 When visiting a successfully validated WEBCAT-enrolled website, the following icon will appear on the top-right of the URL bar:
 
@@ -21,7 +21,7 @@ You can test the extension on the following demo websites:
 * [test.demo.webcat.tech](https://test.demo.webcat.tech)
 * [element.demo.webcat.tech](https://element.demo.webcat.tech)
 
-### Validation or Integrity Errors
+### Validation or integrity errors
 
 If an integrity or validation error occurs, the user will be redirected to a dedicated error page.
 
@@ -40,13 +40,13 @@ You can test various validation and integrity error cases at:
 * [integrity-error.demo.webcat.tech](https://integrity-error.demo.webcat.tech)
   → Links on the homepage should trigger file integrity errors
 
-### Error Codes
+### Error codes
 
 Below is a reference table describing all WEBCAT error codes.
 
 Each error code indicates the validation stage and failure reason. As an end user, you might want to report any of these errors to the website administrators, if it is safe to do so.
 
-#### Fetch Errors
+#### Fetch errors
 
 | Error Code                                | Component | Description                                                             |
 | ----------------------------------------- | --------- | ----------------------------------------------------------------------- |
@@ -54,7 +54,7 @@ Each error code indicates the validation stage and failure reason. As an end use
 | `ERR_WEBCAT_BUNDLE_FETCH_ERROR`           | Fetch     | Failed to fetch required enrollment or manifest data from the website.  |
 
 
-#### Bundle Errors
+#### Bundle errors
 
 | Error Code                             | Component | Description                                                     |
 | -------------------------------------- | --------- | --------------------------------------------------------------- |
@@ -64,7 +64,7 @@ Each error code indicates the validation stage and failure reason. As an end use
 | `ERR_WEBCAT_BUNDLE_MISSING_SIGNATURES` | Bundle    | Signatures are missing from the manifest.              |
 
 
-#### Enrollment Errors
+#### Enrollment errors
 
 | Error Code                                    | Component             | Description                                               |
 | --------------------------------------------- | --------------------- | --------------------------------------------------------- |
@@ -85,7 +85,7 @@ Each error code indicates the validation stage and failure reason. As an end use
 | `ERR_WEBCAT_ENROLLMENT_CLAIMS_EMPTY`          | Enrollment (Sigstore) | No OIDC claims were provided.                             |
 
 
-#### Manifest Errors
+#### Manifest errors
 
 | Error Code                                          | Component | Description                                  |
 | --------------------------------------------------- | --------- | -------------------------------------------- |
@@ -106,14 +106,14 @@ Each error code indicates the validation stage and failure reason. As an end use
 | `ERR_WEBCAT_MANIFEST_WASM_MISSING`                  | Manifest  | WebAssembly information missing.     |
 
 
-#### CSP Errors
+#### CSP errors
 
 | Error Code                    | Component | Description                                           |
 | ----------------------------- | --------- | ----------------------------------------------------- |
 | `ERR_WEBCAT_CSP_PARSE_FAILED` | CSP       | Failed to parse Content Security Policy header.       |
 | `ERR_WEBCAT_CSP_MISMATCH`     | CSP       | CSP header does not match the manifest specification. |
 
-#### Header Errors
+#### Header errors
 
 | Error Code                                | Component | Description                                               |
 | ----------------------------------------- | --------- | --------------------------------------------------------- |
@@ -125,7 +125,7 @@ Each error code indicates the validation stage and failure reason. As an end use
 | `ERR_WEBCAT_HEADERS_ENROLLMENT_MALFORMED` | Headers   | Enrollment header is malformed.                           |
 
 
-#### URL Errors
+#### URL errors
 
 | Error Code                   | Component | Description                                      |
 | ---------------------------- | --------- | ------------------------------------------------ |
@@ -133,7 +133,7 @@ Each error code indicates the validation stage and failure reason. As an end use
 
 ---
 
-#### File Integrity Errors
+#### File integrity errors
 
 | Error Code                 | Component | Description                                      |
 | -------------------------- | --------- | ------------------------------------------------ |
