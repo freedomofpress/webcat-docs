@@ -18,4 +18,4 @@ optional = true
 
 # Exclude specific domains from linkcheck scans.
 # Usually these sites restrict access from automated contexts.
-exclude = ['dl\.acm\.org', 'eprint\.iacr\.org']
+exclude = ['dl\.acm\.org']
