@@ -43,8 +43,6 @@
 
  - **Website operators** or **administrators** (who may also be developers) are responsible for publishing the web application, its *enrollment information*, and the corresponding *manifest*. They configure the web server to comply with parameters specified in the manifest, such as the default Content Security Policy and the default entry point (e.g., the index page). Website administrators are also responsible for enrolling their domain in the *WEBCAT enrollment system* and for signaling *enrollment changes* over time. 
 
- - **Website administrators** or **operators** (who may also be developers) are responsible for publishing the web application, its *enrollment information*, and the corresponding *manifest*. They configure the web server to comply with parameters specified in the manifest, such as the default Content Security Policy and the default entry point (e.g., the index page). Website administrators are also responsible for enrolling their domain in the *WEBCAT enrollment system* and for signaling *enrollment changes* over time. 
-
  In centralized deployments, website administrators and developers are typically the same entity.
 
  - **Infrastructure operators** such as the Freedom of the Press Foundation (FPF), run components of the *WEBCAT enrollment system*. The enrollment system is a distributed, consensus-based system; no single operator has unilateral control over its state or decisions.
