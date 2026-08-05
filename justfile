@@ -1,6 +1,8 @@
 # Serve the mdbook with auto-open
-serve:
+dev:
     cd webcat-documentation && mdbook serve --open
+
+alias serve := dev
 
 # Build the mdbook project
 build:
