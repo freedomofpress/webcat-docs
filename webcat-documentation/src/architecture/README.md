@@ -7,4 +7,4 @@ This section describes WEBCAT's system design and infrastructure.
 ![Full architecture summary](../charts/architectureV2.svg)
 
 ### Components
-- [Enrollment Infrastructure](./enrollment-infrastructure) - WEBCAT enrollment infrastructure chain design
+- [Enrollment Infrastructure](./enrollment-infrastructure/) - WEBCAT enrollment infrastructure chain design
