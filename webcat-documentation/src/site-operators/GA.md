@@ -10,7 +10,7 @@ Site enrollment is the process of:
 This page focuses on how to use WEBCAT-provided GitHub Actions workflows to
 integrate `webcat-cli` with Sigstore into a static site's CI/CD pipeline without
 breaking reproducibility. The prerequisites are covered in the [`webcat-cli`
-documentation](./cli/README.md): in particular [choosing between Sigstore and
+documentation](./cli/): in particular [choosing between Sigstore and
 Sigsum](./cli/sigsum-or-sigstore.md) and the [`webcat.config.json`
 schema](./cli/config-schema.md).
 
