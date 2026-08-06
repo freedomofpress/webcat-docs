@@ -1,13 +1,16 @@
 # WEBCAT CLI
 
-Utilities for creating, validating, and packaging WEBCAT enrollments and manifests.
+The CLI contains utilities for creating, validating, and packaging WEBCAT enrollments and manifests. It can be used to quickly integrate and enroll a web application or domain into WEBCAT.
+
+The [CLI code repository](https://github.com/freedomofpress/webcat-cli) also contains [GitHub Actions](../GA.md) which automate the use of the CLI.
 
 ## Quick Start
 
-This utility, together with the GitHub Actions provided in the same repository, can be used to quickly integrate and enroll a web application or domain into WEBCAT. The recommended steps are:
+If you are a **website operator** or publisher, here is how you can use the CLI to get your website onto WEBCAT:
 
-1. [Prepare your web application](../../webapp-developers/preparing-your-app.md) so it is compatible with WEBCAT.
-2. [Choose Sigsum or Sigstore](./sigsum-or-sigstore.md) for enrollment.
-3. [Install the CLI](./installation.md).
-4. Produce your artifacts with the [enrollment](./enrollment.md), [manifest](./manifest.md), and [bundle](./bundle.md) commands — see the [end-to-end example](./end-to-end.md).
-5. Configure your application with [`webcat.config.json`](./config-schema.md).
+1. [Choose Sigsum or Sigstore](./sigsum-or-sigstore.md) for enrollment.
+2. [Install the CLI](./installation.md).
+3. Produce WEBCAT artifacts by following the [manual signing](../manual.md) steps (or the [end-to-end example](./end-to-end.md) example of those steps, or the [the GitHub Actions](../GA.md) automation of those steps).
+
+If you are also the **develper** of the web app you will be publishing, you must first [prepare your web application](../../webapp-developers/preparing-your-app.md) so it is compatible with WEBCAT. Configure your application with [`webcat.config.json`](./config-schema.md).
+
