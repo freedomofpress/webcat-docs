@@ -9,7 +9,10 @@ Assets that WEBCAT can verify include any web apps that meet [the requirements](
 ## Getting Started
 WEBCAT needs two main configuration and metadata files for enrolling into the system and providing all the necessary information to browsers for verification: an `enrollment.json` and a `manifest.json`, which are combined into a `bundle.json`.
 
-These files are produced with the [`webcat-cli`](./cli/) utility. See its [installation instructions](./cli/installation.md) to get set up, and the [enrollment](./cli/enrollment.md), [manifest](./cli/manifest.md), and [bundle](./cli/bundle.md) command references for usage. The provided [GitHub Actions](./GA.md) automate this flow for Sigstore-based deployments.
+These files are produced with the [`webcat-cli`](./cli/) utility. See its [installation instructions](./cli/installation.md) to get set up with the CLI, then follow [manual signing](./manual.md) steps or the [end-to-end example](./cli/end-to-end.md) to get your website on WEBCAT. Or, use the provided [GitHub Actions](./GA.md) which automate this flow for Sigstore-based deployments.
+
+Detailed [enrollment](./cli/enrollment.md), [manifest](./cli/manifest.md), and [bundle](./cli/bundle.md) CLI references are also available.
+
 
 ### Enrollment
 The `/.well-known/webcat/enrollment.json` file contains information about the root of trust and how to verify it. For instance, in the case of a Sigstore-type enrollment, it records the trust material for Sigstore, and claims about provenance or identities. In the case of a Sigsum-type enrollment, it records the public keys of the authorized signers, a minimum threshold of valid signatures, and the Sigsum trust policy.
