@@ -1,7 +1,7 @@
 # Manual Signing
 The following procedure describes how to use the WEBCAT CLI to generate enrollment and metadata information for WEBCAT. It uses Sigsum.
 
-> For full command and flag details, see the [`webcat-cli` reference](./cli/README.md). For a condensed, copy-pasteable version of this same workflow, see the [end-to-end example](./cli/end-to-end.md).
+> For full command and flag details, see the [`webcat-cli` reference](./cli/). For a condensed, copy-pasteable version of this same workflow, see the [end-to-end example](./cli/end-to-end.md).
 
 ### Create Sigsum Keys
 
