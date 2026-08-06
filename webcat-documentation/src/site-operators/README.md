@@ -7,7 +7,7 @@ Assets that WEBCAT can verify include any web apps that meet [the requirements](
 > We are working to make this process more clear, accessible and straightforward. We welcome feedback on the [documentation, in its repo](https://github.com/freedomofpress/webcat-docs). If you are a developer or a website administrator and have issues following this process, feel free to file an issue in the [extension Github repository](https://github.com/freedomofpress/webcat).
 
 ## Getting Started
-As introduced in the [Introduction](../introduction.md), WEBCAT needs two main configuration and metadata files for enrolling into the system and providing all the necessary information to browsers for verification: an `enrollment.json` and a `manifest.json`, which are combined into a `bundle.json`.
+WEBCAT needs two main configuration and metadata files for enrolling into the system and providing all the necessary information to browsers for verification: an `enrollment.json` and a `manifest.json`, which are combined into a `bundle.json`.
 
 These files are produced with the [`webcat-cli`](./cli/README.md) utility. See its [installation instructions](./cli/installation.md) to get set up, and the [enrollment](./cli/enrollment.md), [manifest](./cli/manifest.md), and [bundle](./cli/bundle.md) command references for usage. The provided [GitHub Actions](./GA.md) automate this flow for Sigstore-based deployments.
 
