@@ -1,6 +1,6 @@
 # Introduction
 
-WEBCAT is a system for verifying the provenance of static web assets. The motivation is to solve the "[Javascript cryptography considered harmful](https://web.archive.org/web/20200731144044/https://www.nccgroup.com/us/about-us/newsroom-and-events/blog/2011/august/javascript-cryptography-considered-harmful/)" problem, making E2EE via the web more secure.
+WEBCAT is a system for verifying the provenance of static web assets; [a tamper-evident seal](https://freedom.press/tech/news/webcat-a-tamper-evident-seal-for-the-open-web/) for websites. The motivation is to solve the "[Javascript cryptography considered harmful](https://web.archive.org/web/20200731144044/https://www.nccgroup.com/us/about-us/newsroom-and-events/blog/2011/august/javascript-cryptography-considered-harmful/)" problem, making E2EE via the web more secure.
 
 Questions? Read our [FAQ](./faq.md).
 

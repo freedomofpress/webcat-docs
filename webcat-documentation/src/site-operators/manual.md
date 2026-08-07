@@ -5,7 +5,7 @@ The following procedure describes how to use the WEBCAT CLI to generate enrollme
 
 ### Create Sigsum Keys
 
-Create a folder where to store the keys. They should be kept secure and stored offline, as they will be used only to sign web application manifests at release time.
+Create a folder to store the keys. They should be kept secure and stored offline, as they will be used only to sign web application manifests at release time. Assuming you have [installed sigsum](./cli/installation.md), run:
 ```
 mkdir -p keys
 sigsum-key generate -o keys/key1
