@@ -1,5 +1,7 @@
 # For users
 
+The WEBCAT browser extension is a curious cat that pokes around websites, letting you know if something doesn't smell right. By investigating the origin of the code running in your browser, it can help you trust the websites you use. 
+
 ## Getting started
 
 Users can install the WEBCAT extension via the Mozilla Add-ons Store (AMO). Firefox is currently the only supported browser.
