@@ -5,9 +5,11 @@ The following procedure describes how to use the WEBCAT CLI to generate enrollme
 
 ## What you'll need
 
-You will need a web app (or static website) that meets the [requirements](../webapp-developers/requirements.md). You will need the app to be available in source control, and to know the origin URL of the repository. You will also need a local checkout of the app in your filesystem. At a minumum, the app must contain an index page (like `index.html`) and an error page (like `error.html`).
+You will need a web app (or static website) that meets the [requirements](../webapp-developers/requirements.md). At a minumum, the app must contain an index page (like `index.html`) and an error page (like `error.html`).
 
-You should have an idea of the Content Security Policy your app will use, per our [CSP guide](../webapp-developers/CSP.md).
+The app must available and versioned in source control; you will need to know the origin URL and desired version. You will need a local checkout of the app, at that version, in your filesystem. To complete enrollment, you must have the capacity to deploy new assets to the app.
+
+You should know the Content Security Policy your app will use, per our [CSP guide](../webapp-developers/CSP.md).
 
 You must have [sigsum installed](./cli/installation.md).
 

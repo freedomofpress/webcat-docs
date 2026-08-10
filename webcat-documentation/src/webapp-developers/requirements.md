@@ -32,3 +32,6 @@ Some HTTP headers can influence the execution environment of a webpage, and as s
  - *Refresh* header is blocked.
  - *Link* header is blocked.
 
+## Minimum app contents
+
+In order for a site operator to use the [WEBCAT CLI](../site-operators/cli/) with the app, at a minimum it must contain a static index page (like `index.html`) and an error page (like `error.html`).
