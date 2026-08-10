@@ -46,7 +46,7 @@ EOF
 ```
 
 ### Create a WEBCAT config file
-Write a `webcat.config.json` file. All the fields in the example are mandatory as keys, though their values can be empty. For instance, `wasm` has to be an array, but can be empty. Choose a content security policy according to the [CSP guide](../webapp-developers/CSP.md). See the [`webcat.config.json` schema](./cli/config-schema.md) for a description of each field.
+Write a `webcat.config.json` file. All the keys and values are required. See the [`webcat.config.json` schema](./cli/config-schema.md) for a description of each field. 
 
 ```
 cat > webcat.config.json <<EOF
@@ -63,6 +63,11 @@ cat > webcat.config.json <<EOF
 }
 EOF
 ```
+Tips to create a valid file
+* `app` and `version` must point to a source control repository
+* `default_csp` should be set according to the [CSP guide](../webapp-developers/CSP.md).
+* `wasm` has to be an array, but can be empty.
+* `default_fallback` must start with a `/`
 
 ### Create enrollment.json
 
