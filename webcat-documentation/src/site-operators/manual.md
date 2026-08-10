@@ -67,7 +67,7 @@ Generate a manifest file to sign later. Requires in input a `--directory`, which
 The utility supports optional multiple `--exclude` parameters to exclude files from the manifest but that are in the folder. The utility will automatically scan for `.wasm` files to hash and add to the `wasm` array. If you have inline WASM, not sourced from a file, or your WASM files have a different extension, you have to manually add the hashes to the `wasm` array in `webcat.config.json` in base64url format.
 
 ```
-npx webcat manifest generate --policy-file trust_policy --config webcat.config.json --directory "/path/to/my/app"--output manifest_unsigned.json
+npx webcat manifest generate --policy-file trust_policy --config webcat.config.json --directory "/path/to/my/app" --output manifest_unsigned.json
 ```
 
 
