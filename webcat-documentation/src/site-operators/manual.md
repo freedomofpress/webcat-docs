@@ -3,9 +3,21 @@ The following procedure describes how to use the WEBCAT CLI to generate enrollme
 
 > For full command and flag details, see the [`webcat-cli` reference](./cli/). For a condensed, copy-pasteable version of this same workflow, see the [end-to-end example](./cli/end-to-end.md).
 
+## What you'll need
+
+You will need a web app (or static website) that meets the [requirements](../webapp-developers/requirements.md). You will need the app to be available in source control, and to know the origin URL of the repository. You will also need a local checkout of the app in your filesystem. At a minumum, the app must contain an index page (like `index.html`) and an error page (like `error.html`).
+
+You should have an idea of the Content Security Policy your app will use, per our [CSP guide](../webapp-developers/CSP.md).
+
+You must have [sigsum installed](./cli/installation.md).
+
+## Steps
+
+These steps will create the `manifest.json`, `enrollment.json`, and `bundle.json` that the WEBCAT browser extension will use to verify your web app. At the end you will be ready to submit your web app to the WEBCAT enrollment system.
+
 ### Create Sigsum Keys
 
-Create a folder to store the keys. They should be kept secure and stored offline, as they will be used only to sign web application manifests at release time. Assuming you have [installed sigsum](./cli/installation.md), run:
+Create a folder to store the keys. They should be kept secure and stored offline, as they will be used only to sign web application manifests at release time.
 ```
 mkdir -p keys
 sigsum-key generate -o keys/key1
