@@ -47,6 +47,8 @@ quorum demo-quorum-rule
 EOF
 ```
 
+<!-- TODO: How do I create a real Sigsum trust policy? This should be explained -->
+
 ### Create a WEBCAT config file
 Write a `webcat.config.json` file. All the keys and values are required. See the [`webcat.config.json` schema](./cli/config-schema.md) for a description of each field. 
 
@@ -66,7 +68,7 @@ cat > webcat.config.json <<EOF
 EOF
 ```
 Tips to create a valid file
-* `app` and `version` must point to a source control repository
+* `app` and `version` must point to a source control repository <!-- TODO: why is this required? -->
 * `default_csp` should be set according to the [CSP guide](../webapp-developers/CSP.md).
 * `wasm` has to be an array, but can be empty.
 * `default_fallback` must start with a `/`
@@ -111,6 +113,7 @@ Remember to deploy:
  - `/.well-known/webcat/manifest.json`
  - `/.well-known/webcat/bundle.json`
 
+<!-- TODO: It would be really nice if there were a way to verify a deployment before submitting! Kinda scary otherwise; is my app going to become unreachable for WEBCAT users if my deployment is wrong? -->
 
 ### Check that the bundle verifies
 Check that the manifest in a bundle is valid according to its enrollment information.
