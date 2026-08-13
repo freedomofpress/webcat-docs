@@ -33,7 +33,7 @@ HEX2=$(sigsum-key to-hex -k keys/key2.pub)
 ```
 
 ### Create a Sigsum trust policy
-A Sigsum trust policy specifies the transparency log to log to and verify against, as well as a witness policy to independently verify the log's honesty. The following policy is intended for testing, as it uses a testing Sigsum log.
+A Sigsum trust policy specifies the transparency log to log to and verify against, as well as a witness policy to independently verify the log's honesty. This policy uses a testing Sigsum log; at this stage we recommend not using a prod policy.
 
 ```
 cat > trust_policy <<EOF
