@@ -9,7 +9,7 @@ Sites opt into WEBCAT by publishing a signed manifest of their web application r
 ### How is this different from HTTPS?
 
 HTTPS doesn't protect your users if the site hosting the web application itself
-gets hacked.
+gets hacked. While HTTPS guarantees that the code you received is the code the server sent, it says nothing about whether the code the server sent is the code its developers intended to publish. In contrast, [WEBCAT provides a tamper-evident seal](https://freedom.press/tech/news/webcat-a-tamper-evident-seal-for-the-open-web/) on web application code.
 
 ### How is this different from Subresource Integrity (SRI)?
 

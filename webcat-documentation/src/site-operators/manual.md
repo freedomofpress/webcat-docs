@@ -3,9 +3,23 @@ The following procedure describes how to use the WEBCAT CLI to generate enrollme
 
 > For full command and flag details, see the [`webcat-cli` reference](./cli/). For a condensed, copy-pasteable version of this same workflow, see the [end-to-end example](./cli/end-to-end.md).
 
+## What you'll need
+
+You will need a web app (or static website) that meets the [requirements](../webapp-developers/requirements.md). At a minumum, the app must contain an index page (like `index.html`) and an error page (like `error.html`).
+
+You will need a local copy of the app. If the app is open source, have on hand the version control origin URL and the desired version tag. To complete enrollment, you must have the capacity to deploy new assets to the app.
+
+You should know the Content Security Policy your app will use, per our [CSP guide](../webapp-developers/CSP.md).
+
+You must have [sigsum installed](./cli/installation.md).
+
+## Steps
+
+These steps will create the `manifest.json`, `enrollment.json`, and `bundle.json` that the WEBCAT browser extension will use to verify your web app. At the end you will be ready to submit your web app to the WEBCAT enrollment system.
+
 ### Create Sigsum Keys
 
-Create a folder where to store the keys. They should be kept secure and stored offline, as they will be used only to sign web application manifests at release time.
+Create a folder to store the keys. They should be kept secure and stored offline, as they will be used only to sign web application manifests at release time.
 ```
 mkdir -p keys
 sigsum-key generate -o keys/key1
@@ -19,7 +33,7 @@ HEX2=$(sigsum-key to-hex -k keys/key2.pub)
 ```
 
 ### Create a Sigsum trust policy
-A Sigsum trust policy specifies the transparency log to log to and verify against, as well as a witness policy to independently verify the log's honesty. The following policy is intended for testing, as it uses a testing Sigsum log.
+A Sigsum trust policy specifies the transparency log to log to and verify against, as well as a witness policy to independently verify the log's honesty. This policy uses a testing Sigsum log; at this stage we recommend not using a prod policy.
 
 ```
 cat > trust_policy <<EOF
@@ -33,8 +47,10 @@ quorum demo-quorum-rule
 EOF
 ```
 
+<!-- TODO: How do I create a real Sigsum trust policy? This should be explained -->
+
 ### Create a WEBCAT config file
-Write a `webcat.config.json` file. All the fields in the example are mandatory as keys, though their values can be empty. For instance, `wasm` has to be an array, but can be empty. Choose a content security policy according to the [CSP guide](../webapp-developers/CSP.md). See the [`webcat.config.json` schema](./cli/config-schema.md) for a description of each field.
+Write a `webcat.config.json` file. All the keys and values are required, though the `wasm` array and `extra_csp` object may be empty. The key `default_csp` should be set according to the [CSP guide](../webapp-developers/CSP.md). See the [`webcat.config.json` schema](./cli/config-schema.md) for a description of each field. 
 
 ```
 cat > webcat.config.json <<EOF
@@ -67,7 +83,7 @@ Generate a manifest file to sign later. Requires in input a `--directory`, which
 The utility supports optional multiple `--exclude` parameters to exclude files from the manifest but that are in the folder. The utility will automatically scan for `.wasm` files to hash and add to the `wasm` array. If you have inline WASM, not sourced from a file, or your WASM files have a different extension, you have to manually add the hashes to the `wasm` array in `webcat.config.json` in base64url format.
 
 ```
-npx webcat manifest generate --policy-file trust_policy --config webcat.config.json --directory "/path/to/my/app"--output manifest_unsigned.json
+npx webcat manifest generate --policy-file trust_policy --config webcat.config.json --directory "/path/to/my/app" --output manifest_unsigned.json
 ```
 
 
@@ -92,6 +108,7 @@ Remember to deploy:
  - `/.well-known/webcat/manifest.json`
  - `/.well-known/webcat/bundle.json`
 
+<!-- TODO: It would be really nice if there were a way to verify a deployment before submitting! Kinda scary otherwise; is my app going to become unreachable for WEBCAT users if my deployment is wrong? -->
 
 ### Check that the bundle verifies
 Check that the manifest in a bundle is valid according to its enrollment information.
