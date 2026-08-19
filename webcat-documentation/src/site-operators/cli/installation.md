@@ -26,7 +26,7 @@ go install sigsum.org/sigsum-go/cmd/sigsum-key@latest
 go install sigsum.org/sigsum-go/cmd/sigsum-submit@latest
 ```
 
-By default, these binaries will be available in `$HOME/go/bin`. Add this to your system path, then run `sigsum-key` to verify it can be found.
+By default, these binaries will be available in `$HOME/go/bin`.
 
 ## Using the CLI
 
