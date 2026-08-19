@@ -14,5 +14,5 @@ If you are a **website operator** or publisher, here is how you can use the CLI 
     * (Or, use the [end-to-end example](./end-to-end.md) example of those steps, or the [the GitHub Actions](../GA.md) automation of those steps.)
     * Refer to [`webcat.config.json`](./config-schema.md) when creating your configuration file.
 
-If you are also the **develper** of the web app you will be publishing, you must first [prepare your web application](../../webapp-developers/preparing-your-app.md) so it is compatible with WEBCAT. 
+If you are also the **developer** of the web app you will be publishing, you must first [prepare your web application](../../webapp-developers/preparing-your-app.md) so it is compatible with WEBCAT. 
 
