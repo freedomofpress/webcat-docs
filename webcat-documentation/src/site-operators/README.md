@@ -2,7 +2,7 @@
 
 These are instructions for website publishers or administrators who want to enroll their domain and allow WEBCAT to verify the web assets that they publish.
 
-Assets that WEBCAT can verify include any web apps that meet [the requirements](../webapp-developers/requirements.md). If you are developing and hosting your own web application, you should first refer to our [developer documentation](../webapp-developers/README.md), then return here when it's time to publish. If you are hosting a third-party web application intended to be WEBCAT compliant, the third party should provide instructions; if they don't, reach out to them to see if they are open to WEBCAT compliance. WEBCAT can also verify other static web assets or fully static websites.
+Assets that WEBCAT can verify include any web apps that meet [the requirements](../webapp-developers/requirements.md). If you are developing and hosting your own web application, you should first refer to our [developer documentation](../webapp-developers/), then return here when it's time to publish. If you are hosting a third-party web application intended to be WEBCAT compliant, the third party should provide instructions; if they don't, reach out to them to see if they are open to WEBCAT compliance. WEBCAT can also verify other static web assets or fully static websites.
 
 > We are working to make this process more clear, accessible and straightforward. We welcome feedback on the [documentation, in its repo](https://github.com/freedomofpress/webcat-docs). If you are a developer or a website administrator and have issues following this process, feel free to file an issue in the [extension Github repository](https://github.com/freedomofpress/webcat).
 
