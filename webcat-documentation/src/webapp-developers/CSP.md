@@ -66,7 +66,7 @@ A framed origin that is enrolled is verified under its own manifest. A framed or
 
 Do not send an `Origin-Agent-Cluster` header with a value other than `?1` for enrolled documents. Such responses are blocked.
 
-Set the `sandbox` attribute on frames that embed unverified content, such as CAPTCHAs, third-party players or payment widgets. Grant only the flags required, for example `sandbox="allow-scripts"`, and never `allow-same-origin` for content you do not control. Exchange data with frames through `postMessage` and verify the origin of every message.
+Set the `sandbox` attribute on frames that embed unverified content, such as CAPTCHAs, third-party players or payment widgets, and exchange data with them through `postMessage`. Worked examples are in [Embedding untrusted content](./embedding-untrusted-content.md).
 
 ### worker-src
 The only allowed source expressions are:
@@ -95,6 +95,7 @@ Directive by directive:
  - `worker-src 'self'`: workers only from the enrolled origin, where their scripts are verified like any other script.
  - `img-src`, `font-src`, `connect-src`: not restricted by WEBCAT. Limit them to the sources the application uses. `connect-src` determines which API endpoints the application can call.
  - `frame-ancestors 'self'`: not restricted by WEBCAT, but prevents other sites from framing the application.
+ - `frame-src`: not restricted by WEBCAT, but falls back to `default-src 'none'` in this policy. List the origins of any embedded frames, see [Embedding untrusted content](./embedding-untrusted-content.md).
 
 Then:
 
