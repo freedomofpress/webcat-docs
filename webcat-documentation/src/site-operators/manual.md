@@ -1,11 +1,11 @@
 # Manual Signing
-The following procedure describes how to use the WEBCAT CLI to generate enrollment and metadata information for WEBCAT. It uses Sigsum.
+The following procedure describes how to use the [webcat-cli](../concepts.md#webcat-cli) to generate enrollment and metadata information for WEBCAT. It uses [Sigsum](../concepts.md#sigsum).
 
 > For full command and flag details, see the [`webcat-cli` reference](./cli/). For a condensed, copy-pasteable version of this same workflow, see the [end-to-end example](./cli/end-to-end.md).
 
 ## What you'll need
 
-You will need a web app (or static website) that meets the [requirements](../webapp-developers/requirements.md). At a minumum, the app must contain an index page (like `index.html`) and an error page (like `error.html`).
+You will need a web app (or static website) that meets the [requirements](../webapp-developers/requirements.md). At a minimum, the app must contain an index page (like `index.html`) and an error page (like `error.html`).
 
 You will need a local copy of the app. If the app is open source, have on hand the version control origin URL and the desired version tag. To complete enrollment, you must have the capacity to deploy new assets to the app.
 
@@ -15,11 +15,11 @@ You must have [sigsum installed](./cli/installation.md).
 
 ## Steps
 
-These steps will create the `manifest.json`, `enrollment.json`, and `bundle.json` that the WEBCAT browser extension will use to verify your web app. At the end you will be ready to submit your web app to the WEBCAT enrollment system.
+These steps will create the `manifest.json`, `enrollment.json`, and `bundle.json` that the WEBCAT [browser extension](../concepts.md#browser-extension) will use to verify your web app. At the end you will be ready to submit your web app to the WEBCAT [enrollment infrastructure](../concepts.md#enrollment-infrastructure).
 
 ### Create Sigsum Keys
 
-Create a folder to store the keys. They should be kept secure and stored offline, as they will be used only to sign web application manifests at release time.
+Create a folder to store the keys. They should be kept secure and stored offline, as they will be used only to sign web app [manifests](../concepts.md#manifest) at release time.
 ```
 mkdir -p keys
 sigsum-key generate -o keys/key1
@@ -33,7 +33,7 @@ HEX2=$(sigsum-key to-hex -k keys/key2.pub)
 ```
 
 ### Create a Sigsum trust policy
-A Sigsum trust policy specifies the transparency log to log to and verify against, as well as a witness policy to independently verify the log's honesty. This policy uses a testing Sigsum log; at this stage we recommend not using a prod policy.
+A Sigsum [trust policy](../concepts.md#trust-policy) specifies the [transparency log](../concepts.md#transparency-log) to log to and verify against, as well as a witness policy to independently verify the log's honesty. This policy uses a testing Sigsum log; at this stage we recommend not using a prod policy.
 
 ```
 cat > trust_policy <<EOF
@@ -78,7 +78,7 @@ npx webcat enrollment create --policy-file trust_policy --threshold 1 --max-age 
 ```
 
 ### Generate the unsigned manifest
-Generate a manifest file to sign later. Requires in input a `--directory`, which is the path of the assets of the web application to sign. Remember, everything in the folder will be added to the manifest and integrity checked!
+Generate a manifest file to sign later. Requires in input a `--directory`, which is the path of the assets of the web app to sign. Remember, everything in the folder will be added to the manifest and integrity checked!
 
 The utility supports optional multiple `--exclude` parameters to exclude files from the manifest but that are in the folder. The utility will automatically scan for `.wasm` files to hash and add to the `wasm` array. If you have inline WASM, not sourced from a file, or your WASM files have a different extension, you have to manually add the hashes to the `wasm` array in `webcat.config.json` in base64url format.
 
@@ -95,7 +95,7 @@ npx webcat manifest sign --policy-file trust_policy -i manifest_unsigned.json -k
 ```
 
 ### Create bundle
-Use the CLI to join `enrollment.json` and `manifest.json` into a single `bundle.json` that will then be consumed by the WEBCAT extension in users' browser.
+Use the CLI to join `enrollment.json` and `manifest.json` into a single `bundle.json` that will then be consumed by the WEBCAT browser extension in users' browser.
 
 ```
 npx webcat bundle create --enrollment enrollment.json --manifest manifest.json --output bundle.json
@@ -105,17 +105,16 @@ npx webcat bundle create --enrollment enrollment.json --manifest manifest.json -
 Remember to deploy:
 
  - `/.well-known/webcat/enrollment.json`
- - `/.well-known/webcat/manifest.json`
  - `/.well-known/webcat/bundle.json`
 
 <!-- TODO: It would be really nice if there were a way to verify a deployment before submitting! Kinda scary otherwise; is my app going to become unreachable for WEBCAT users if my deployment is wrong? -->
 
 ### Check that the bundle verifies
-Check that the manifest in a bundle is valid according to its enrollment information.
+Check that the manifest in a [bundle](../concepts.md#bundle) is valid according to its [enrollment information](../concepts.md#enrollment-information).
 
 ```
 npx webcat manifest verify bundle.json
 ```
 
 ### Submit for enrollment
-If everything verifies, you are ready for deployment! Enroll in the WEBCAT enrollment system at [enroll.webcat.tech](https://enroll.webcat.tech)
+If everything verifies, you are ready for deployment! Enroll in the WEBCAT enrollment infrastructure at [enroll.webcat.tech](https://enroll.webcat.tech)

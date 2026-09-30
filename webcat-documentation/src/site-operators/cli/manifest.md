@@ -1,6 +1,6 @@
 # Manifest Commands
 
-The `manifest` namespace operates on WEBCAT manifests:
+The `manifest` namespace operates on WEBCAT [manifests](../../concepts.md#manifest):
 
 | Command | Purpose |
 | --- | --- |
@@ -20,7 +20,7 @@ npx webcat manifest hash -i examples/manifest.json
 # => 8OYr4SFw2U2NR2efE69FAKZicf_2QbUGxXT7kxN1C80
 ```
 
-Example – verify a bundle:
+Example – verify a [bundle](../../concepts.md#bundle):
 
 ```sh
 npx webcat manifest verify examples/bundle.json
@@ -28,7 +28,7 @@ npx webcat manifest verify examples/bundle.json
 
 ## Sigstore signing
 
-Sigstore signing defaults to the community Fulcio/Rekor services. You can override the
+[Sigstore](../../concepts.md#sigstore) signing defaults to the community Fulcio/Rekor services. You can override the
 endpoints with `--fulcio-url`, `--rekor-url`, and `--tsa-url` when signing.
 
 To sign with Sigstore using an ambient OIDC token (for example, in CI):

@@ -1,6 +1,6 @@
 # Enrollment infrastructure
 
-**[WEBCAT Infra Chain](https://github.com/freedomofpress/webcat-infra-chain)** is the repository for the Rust enrollment infrastructure.
+**[WEBCAT Infra Chain](https://github.com/freedomofpress/webcat-infra-chain)** is the repository for the Rust [enrollment infrastructure](../concepts.md#enrollment-infrastructure).
 
 See the basic architecture explained [here](../architecture/enrollment-infrastructure).
 

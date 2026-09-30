@@ -1,2 +1,2 @@
-# WEBCAT validator operator
+# WEBCAT infrastructure operator
 

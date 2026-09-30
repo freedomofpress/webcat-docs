@@ -1,10 +1,10 @@
 # For users
 
-The WEBCAT browser extension is a curious cat that pokes around websites, letting you know if something doesn't smell right. By investigating the origin of the code running in your browser, it can help you trust the websites you use. 
+The WEBCAT [browser extension](concepts.md#browser-extension) is a curious cat that pokes around websites, letting you know if something doesn't smell right. By investigating the origin of the code running in your browser, it can help you trust the websites you use. 
 
 ## Getting started
 
-Users can install the WEBCAT extension via the Mozilla Add-ons Store (AMO). Firefox is currently the only supported browser.
+Users can install the WEBCAT browser extension via the Mozilla Add-ons store (AMO). Firefox is currently the only supported browser.
 
 👉 **[Get the extension](https://addons.mozilla.org/en-US/firefox/addon/webcat/)**
 
@@ -37,7 +37,7 @@ You can test various validation and integrity error cases at:
   → Should trigger an enrollment error
 
 * [manifest-error.demo.webcat.tech](https://manifest-error.demo.webcat.tech)
-  → Should trigger a manifest validation error
+  → Should trigger a [manifest](concepts.md#manifest) validation error
 
 * [integrity-error.demo.webcat.tech](https://integrity-error.demo.webcat.tech)
   → Links on the homepage should trigger file integrity errors
@@ -46,7 +46,7 @@ You can test various validation and integrity error cases at:
 
 Below is a reference table describing all WEBCAT error codes.
 
-Each error code indicates the validation stage and failure reason. As an end user, you might want to report any of these errors to the website administrators, if it is safe to do so.
+Each error code indicates the validation stage and failure reason. As an [end user](concepts.md#end-users), you might want to report any of these errors to the [site operators](concepts.md#site-operators), if it is safe to do so.
 
 #### Fetch errors
 

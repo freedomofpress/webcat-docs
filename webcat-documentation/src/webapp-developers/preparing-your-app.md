@@ -1,6 +1,6 @@
-# Prepare the web application for compatibility
+# Prepare the web app for compatibility
 
-Before anything else, you should evaluate whether your website or web application is compatible with WEBCAT. There are a few strict requirements:
+Before anything else, you should evaluate whether your website or web app is compatible with WEBCAT. There are a few strict requirements:
 
 * The frontend **must be fully static** (i.e., no server-generated HTML, JavaScript, or CSS).
 * **No inline JavaScript** is allowed.

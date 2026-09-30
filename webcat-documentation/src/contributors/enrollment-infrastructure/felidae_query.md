@@ -14,6 +14,6 @@ The WEBCAT ABCI application, Felidae, exposes a read only HTTP API for querying 
 | `GET /enrollment/votes/{domain}` | Oracle enrollment voting queue for a specific domain |
 | `GET /enrollment/pending` | Oracle enrollment pending queue (all domains) |
 | `GET /enrollment/pending/{domain}` | Oracle enrollment pending queue for a specific domain |
-| `GET /snapshot` | Full WEBCAT list, for monitoring (does not provide enough data for full client-side verification) |
+| `GET /snapshot` | Full preload list, for monitoring (does not provide enough data for full client-side verification) |
 | `GET /snapshot/{domain}` | Hash for a specific domain, for monitoring |
 | `GET /validators` | Get validator details |

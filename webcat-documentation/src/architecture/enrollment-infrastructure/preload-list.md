@@ -1,10 +1,10 @@
 # Enrollment Preload List
 
-At every finalized block, the current state of the preload list - agreed upon by
-2/3 of validators - can be extracted and signed. Any node can then publish this
-list for the WEBCAT extension to consume.
+At every finalized block, the current state of the [preload list](../../concepts.md#preload-list) - agreed upon by
+2/3 of [validators](../../concepts.md#validator) - can be extracted and signed. Any node can then publish this
+list for the WEBCAT [browser extension](../../concepts.md#browser-extension) to consume.
 
-The WEBCAT extension does not trust a specific validator. Instead, it verifies that:
+The WEBCAT browser extension does not trust a specific validator. Instead, it verifies that:
 
 - There was valid consensus.
 - The current block height/timestamp is greater than the previous one.
@@ -16,7 +16,7 @@ The latest `LightBlock` is posted daily:
 This `LightBlock` contains a signed `AppHash` by the validator set. Clients
 verify the state is signed by at least 2/3 of the validator set prior to usage.
 
-The latest snapshot of the canonical state is posted daily to:
+The latest snapshot of the [canonical state](../../concepts.md#canonical-state) is posted daily to:
 
 * [https://webcat.freedom.press/list.json](https://webcat.freedom.press/list.json)
 

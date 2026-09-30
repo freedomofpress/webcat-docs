@@ -1,14 +1,14 @@
 # Choosing Sigsum or Sigstore
 
-A WEBCAT manifest describes a web application by listing its files, cryptographic hashes, CSP policies, and additional metadata useful for auditability. But how is this information verified?
+A WEBCAT [manifest](../../concepts.md#manifest) describes a web app by listing its files, cryptographic hashes, CSP policies, and additional metadata useful for auditability. But how is this information verified?
 
-Manifests are authenticated using either **Sigsum** or **Sigstore** signatures. The metadata required to validate these signatures or attestations must be **registered beforehand** with WEBCAT’s distributed validation system.
+Manifests are authenticated using either **[Sigsum](../../concepts.md#sigsum)** or **[Sigstore](../../concepts.md#sigstore)** signatures. The metadata required to validate these signatures or attestations must be **registered beforehand** with WEBCAT’s distributed validation system.
 
-Changes to enrollment information are:
+Changes to [enrollment information](../../concepts.md#enrollment-information) are:
 
 * Transparently logged
 * Auditable
-* Subject to a delay (cool-down window)
+* Subject to a delay ([cooldown](../../concepts.md#cooldown))
 
 Keep this in mind: if you make a mistake, you may need to wait before updating the enrollment again.
 
@@ -22,7 +22,7 @@ The first decision you must make is whether to use **Sigsum** or **Sigstore**.
 * Easy offline signing
 * Threshold signing support in WEBCAT
 
-You can choose among multiple transparency logs and witness policies, or even run your own witness if you want to define your own trust roots.
+You can choose among multiple [transparency logs](../../concepts.md#transparency-log) and witness policies, or even run your own witness if you want to define your own trust roots.
 
 Sigsum is generally the better choice if:
 
@@ -54,6 +54,6 @@ The Sigstore workflow consists of two actions:
 
 * Manifest Update Action - [Example Usage](https://github.com/freedomofpress/webcat-demo-test/blob/main/.github/workflows/generate-sign-sigstore-manifest.yaml)
 
-  * Generates, signs, and bundles a WEBCAT manifest
+  * Generates, signs, and [bundles](../../concepts.md#bundle) a WEBCAT manifest
 
 See the `webcat-demo-test` repository for a complete, end-to-end example of this flow. Note: due to how Sigstore is claimed in the GitHub Action, this has to be copied into the target repository and should not be invoked directly from the `webcat-cli` one.

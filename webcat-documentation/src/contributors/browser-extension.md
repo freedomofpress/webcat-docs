@@ -4,7 +4,7 @@
 
 Within the [WEBCAT code repo](https://github.com/freedomofpress/webcat), refer to the [extension README](https://github.com/freedomofpress/webcat/tree/main/extension#readme) and source code comments.
 
-The WEBCAT browser extension is [available as a Firefox addon](https://addons.mozilla.org/en-US/firefox/addon/webcat/).
+The WEBCAT [browser extension](../concepts.md#browser-extension) is [available as a Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/webcat/).
 
 ## Testing
 ### Overview
@@ -13,10 +13,10 @@ The extension provides some testing infrastructure. When built and packaged for 
 
 Specifically, the mocked parts are:
 
-* The *enrollment list* update system
+* The *[preload list](../concepts.md#preload-list)* update system
 * The local lookup of enrollment metadata
 
-The reason for this is to provide an easy harness to generate enrollment and manifest test cases dynamically, without enrolling them in the *enrollment system* and waiting for it to update.
+The reason for this is to provide an easy harness to generate enrollment and [manifest](../concepts.md#manifest) test cases dynamically, without enrolling them in the *[enrollment infrastructure](../concepts.md#enrollment-infrastructure)* and waiting for it to update.
 
 In the future, if necessary, we could support both production and testing modes simultaneously.
 
@@ -75,7 +75,7 @@ To test `webcat-demo-test` locally one has to:
 
 * Clone the repository
 * Create the `testing-list` file in the same folder
-* Use the WEBCAT CLI to generate a hash of the enrollment information:
+* Use the [webcat-cli](../concepts.md#webcat-cli) to generate a hash of the [enrollment information](../concepts.md#enrollment-information):
 
   ```
   node webcat-cli/dist/cli.cjs enrollment hash .well-known/webcat/enrollment.json

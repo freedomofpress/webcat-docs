@@ -4,12 +4,12 @@
 
 ### How does WEBCAT work?
 
-Sites opt into WEBCAT by publishing a signed manifest of their web application resources. Users with the WEBCAT browser extension verify that loaded resources match the verified manifest, blocking page load if there are any modifications.
+Sites opt into WEBCAT by publishing a signed [manifest](concepts.md#manifest) of their web app resources. Users with the WEBCAT [browser extension](concepts.md#browser-extension) verify that loaded resources match the verified manifest, blocking page load if there are any modifications.
 
 ### How is this different from HTTPS?
 
-HTTPS doesn't protect your users if the site hosting the web application itself
-gets hacked. While HTTPS guarantees that the code you received is the code the server sent, it says nothing about whether the code the server sent is the code its developers intended to publish. In contrast, [WEBCAT provides a tamper-evident seal](https://freedom.press/tech/news/webcat-a-tamper-evident-seal-for-the-open-web/) on web application code.
+HTTPS doesn't protect your users if the site hosting the web app itself
+gets hacked. While HTTPS guarantees that the code you received is the code the server sent, it says nothing about whether the code the server sent is the code its developers intended to publish. In contrast, [WEBCAT provides a tamper-evident seal](https://freedom.press/tech/news/webcat-a-tamper-evident-seal-for-the-open-web/) on web app code.
 
 ### How is this different from Subresource Integrity (SRI)?
 
@@ -38,7 +38,7 @@ Users can check if a site has been enrolled using the list provided at:
 ### Does WEBCAT require browser extensions or special software?
 
 Yes, currently users must use the WEBCAT Browser Extension, available in the
-Mozilla Add-Ons store.
+Mozilla Add-ons store.
 
 ### What browsers are supported?
 
@@ -51,11 +51,11 @@ Chromium-based browsers.
 
 TODO provide some numbers here
 
-## For Site Owners
+## For Site Operators
 
 ### How do I enroll my site in WEBCAT?
 
-You can use the [enrollment frontend](https://enroll.webcat.tech/). Refer to the [website operators](./site-operators/) documentation.
+You can use the [enrollment frontend](https://enroll.webcat.tech/). Refer to the [site operators](./site-operators/) documentation.
 
 ### Is there a cost to enroll my site?
 
@@ -63,7 +63,7 @@ It's free.
 
 ### Can I unenroll my site?
 
-Yes, you can unenroll your site by removing your enrollment bundle from:
+Yes, you can unenroll your site by removing your enrollment [bundle](concepts.md#bundle) from:
 
 `https://<domain>/.well-known/webcat/enrollment.json`
 
@@ -91,7 +91,7 @@ We only store submitted domains.
 
 ### What if the enrollment infrastructure itself is compromised?
 
-If the enrollment infrastructure itself were compromised, an attacker could
+If the [enrollment infrastructure](concepts.md#enrollment-infrastructure) itself were compromised, an attacker could
 unenroll your site from WEBCAT, enabling them to serve malicious code to your
 users.
 
@@ -101,7 +101,7 @@ users.
 
 Blockchain technology has unfortunately been associated with scams and speculation, but WEBCAT uses blockchain for a specific technical purpose: providing a decentralized, tamper-resistant registry of site enrollments. There is no financial aspect to this blockchain, we're using it as a permissioned distributed database that no single party controls.
 
-The blockchain serves as a public ledger where site enrollment records are stored immutably. This ensures that once a site is enrolled in WEBCAT, that enrollment cannot be retroactively modified or deleted by the chain operator, providing the trust guarantees that WEBCAT requires.
+The blockchain serves as a public ledger where site [enrollment information](concepts.md#enrollment-information) is stored immutably. This ensures that once a site is enrolled in WEBCAT, that enrollment cannot be retroactively modified or deleted by the chain operator, providing the trust guarantees that WEBCAT requires.
 
 For the design of WEBCAT, we wanted to design an infrastructure that has no single point of failure or control, thus ensuring that no single party can prevent enrollments.
 

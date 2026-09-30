@@ -1,7 +1,7 @@
 
 This section describes WEBCAT's system design and infrastructure.
 
-> We are currently writing this section and only the Enrollment Infrastructure is documented. In the meantime, we suggest looking also at the [Research](../research.md) section for additional resources and useful background.
+> We are currently writing this section and only the [Enrollment Infrastructure](../concepts.md#enrollment-infrastructure) is documented. In the meantime, we suggest looking also at the [Research](../research.md) section for additional resources and useful background.
 
 ### Overview
 ![Full architecture summary](../charts/architectureV2.svg)

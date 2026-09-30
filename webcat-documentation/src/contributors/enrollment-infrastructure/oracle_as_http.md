@@ -1,6 +1,6 @@
 # Run oracle as HTTP server
 
-Instead of using the CLI, you can run the oracle as an HTTP server that accepts observation requests via API:
+Instead of using the CLI, you can run the [oracle](../../concepts.md#oracle) as an HTTP server that accepts observation requests via API:
 
 ```bash
 felidae oracle server \

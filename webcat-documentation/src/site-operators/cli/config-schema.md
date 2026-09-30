@@ -1,6 +1,6 @@
 # `webcat.config.json` Schema
 
-The manifest generator expects a Webcat config file (commonly `webcat.config.json`
+The [manifest](../../concepts.md#manifest) generator expects a WEBCAT config file (commonly `webcat.config.json`
 or a JSON equivalent) matching the schema below:
 
 | Field | Type | Description |

@@ -6,7 +6,7 @@
 felidae admin template > config.json
 ```
 
-This generates a configuration template (see the Config proto) that you'll edit to add your own keys as an admin and oracle.
+This generates a configuration template (see the Config proto) that you'll edit to add your own keys as an admin and [oracle](../../concepts.md#oracle).
 
 ### 2. Generate your admin and oracle keypairs
 

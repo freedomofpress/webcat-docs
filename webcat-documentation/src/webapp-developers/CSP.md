@@ -1,5 +1,5 @@
 # CSP
-WEBCAT verifies that everything a page executes is covered by the signed manifest. The Content Security Policy enforces this at runtime: it prevents the page from loading scripts that are not in the manifest, from executing code generated at runtime with `eval()`, and from starting workers from `blob:` or `data:` URLs. WEBCAT therefore restricts which policies a manifest may declare and verifies that the server sends them.
+WEBCAT verifies that everything a page executes is covered by the signed [manifest](../concepts.md#manifest). The Content Security Policy enforces this at runtime: it prevents the page from loading scripts that are not in the manifest, from executing code generated at runtime with `eval()`, and from starting workers from `blob:` or `data:` URLs. WEBCAT therefore restricts which policies a manifest may declare and verifies that the server sends them.
 
 The authoritative list of rules is the [CSP section of the specification](https://github.com/freedomofpress/webcat-spec/blob/main/csp.md). This page describes how the rules are applied and how to write a compliant policy.
 
@@ -11,7 +11,7 @@ A manifest contains one mandatory policy, `default_csp`, and optionally a map of
 
 **On every response.** Each response from the enrolled origin must carry a `Content-Security-Policy` header that matches the manifest policy for its path character for character. Whitespace, directive ordering and quoting are all significant. A different header gives `ERR_WEBCAT_CSP_MISMATCH`; a missing header gives `ERR_WEBCAT_HEADERS_MISSING_CRITICAL`. Responses served from the browser cache are exempt from the header check because Firefox does not always expose their headers to extensions. The browser still enforces the policy on them.
 
-Send a single policy. Manifest policies must not contain commas. If an intermediary, for example a browser extension such as NoScript, appends a further policy to the header, WEBCAT compares only the first policy. The browser enforces all of them.
+Send a single policy. Manifest policies must not contain commas. If an intermediary, for example a [browser extension](../concepts.md#browser-extension) such as NoScript, appends a further policy to the header, WEBCAT compares only the first policy. The browser enforces all of them.
 
 **Which policy applies to a path.** WEBCAT looks for the request path as an exact key in `extra_csp`, then for the longest `extra_csp` key that is a prefix of the path, and falls back to `default_csp`. A request for `/` is matched as `default_index`. Keys in `extra_csp` are plain string prefixes: `"/admin"` also covers `/admin-help.html`, so terminate keys with `/` to denote a directory.
 
