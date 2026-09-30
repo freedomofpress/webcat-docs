@@ -4,7 +4,7 @@
 
 - Node.js 20 or newer.
 - `sigsum-submit` must be available on your `$PATH` for `manifest sign` operations. (See [Installing the CLI](#installing-the-cli) below.)
-- A Sigsum trust policy and keypair for signing manifests.
+- A [Sigsum](../../concepts.md#sigsum) [trust policy](../../concepts.md#trust-policy) and keypair for signing [manifests](../../concepts.md#manifest).
 - An OIDC identity token in the environment (CI-supported) or interactive login for `manifest sign --type sigstore`.
 
 ## Installing the CLI

@@ -1,14 +1,14 @@
-## Github actions automation
+## GitHub Actions automation
 
 Site enrollment is the process of:
 
-1. publishing the WEBCAT artifacts that let the browser extension verify your
+1. publishing the WEBCAT artifacts that let the [browser extension](../concepts.md#browser-extension) verify your
    site; and
 
 2. keeping those artifacts current as your site evolves.
 
 This page focuses on how to use WEBCAT-provided GitHub Actions workflows to
-integrate `webcat-cli` with Sigstore into a static site's CI/CD pipeline without
+integrate `webcat-cli` with [Sigstore](../concepts.md#sigstore) into a static site's CI/CD pipeline without
 breaking reproducibility. The prerequisites are covered in the [`webcat-cli`
 documentation](./cli/): in particular [choosing between Sigstore and
 Sigsum](./cli/sigsum-or-sigstore.md) and the [`webcat.config.json`
@@ -47,7 +47,7 @@ Specifically, merging changes to these files:
 Common pitfalls include:
 
 **Version stamps.** If CI stamps a version string (e.g., `YYYY.MM.DD.HH.MM.SS`)
-from the current clock, a rebuild triggered by merging an updated manifest will
+from the current clock, a rebuild triggered by merging an updated [manifest](../concepts.md#manifest) will
 produce a different version string than the original build. This changes the
 manifest and triggers another cycle. One solution is to derive the version from
 the timestamp of the Git commit instead.
@@ -66,7 +66,7 @@ across three workflows:
 
 Triggered on push to the main branch, **excluding** the `.well-known/webcat/`
 path. Builds the site, deploys it, and then calls WEBCAT's reusable workflows to
-update the manifest and the bundle.
+update the manifest and the [bundle](../concepts.md#bundle).
 
 The `paths-ignore` exclusion prevents an infinite loop when CI later commits the
 updated manifest.
@@ -94,7 +94,7 @@ manifest-generation steps.
 #### 3. Enrollment sync
 
 Triggered on a daily schedule (and manually via `workflow_dispatch`). Fetches
-the latest Sigstore trusted-root from the upstream WEBCAT CLI repository and
+the latest Sigstore trusted-root from the upstream [webcat-cli](../concepts.md#webcat-cli) repository and
 opens a pull request if it differs from the current `enrollment.json`.
 
 Merging the resulting pull request triggers the **Publish** workflow, which

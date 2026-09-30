@@ -1,12 +1,12 @@
 # Requirements
-To operate correctly, a web application MUST satisfy a small set of constraints designed to provide security, consistency, and auditability. These constraints ensure that WEBCAT can reliably reason about what code is executed in the browser and how it evolves over time.
+To operate correctly, a web app MUST satisfy a small set of constraints designed to provide security, consistency, and auditability. These constraints ensure that WEBCAT can reliably reason about what code is executed in the browser and how it evolves over time.
 For a more detailed discussion of the design rationale, see [this blog post](https://securedrop.org/news/webcat-towards-auditable-web-application-runtimes/).
 
 ## Staticness
 
-All assets that constitute the logic and user interface of the web application MUST be known and fixed at signing time. Server-generated HTML, scripts, or stylesheets are not supported. This includes, for example, mixed PHP/HTML pages, server-side templating systems, and Server-Side Includes (SSI).
+All assets that constitute the logic and user interface of the web app MUST be known and fixed at signing time. Server-generated HTML, scripts, or stylesheets are not supported. This includes, for example, mixed PHP/HTML pages, server-side templating systems, and Server-Side Includes (SSI).
 
-WEBCAT can validate the integrity of any asset type, but it enforces integrity *strictly* only for HTML, JavaScript, and CSS. For other asset types, integrity verification depends on whether a corresponding path is explicitly listed in the manifest.
+WEBCAT can validate the integrity of any asset type, but it enforces integrity *strictly* only for HTML, JavaScript, and CSS. For other asset types, integrity verification depends on whether a corresponding path is explicitly listed in the [manifest](../concepts.md#manifest).
 
 This enables a clear separation between:
 
@@ -34,4 +34,4 @@ Some HTTP headers can influence the execution environment of a webpage, and as s
 
 ## Minimum app contents
 
-In order for a site operator to use the [WEBCAT CLI](../site-operators/cli/) with the app, at a minimum it must contain a static index page (like `index.html`) and an error page (like `error.html`).
+In order for a [site operator](../concepts.md#site-operators) to use the [webcat-cli](../site-operators/cli/) with the app, at a minimum it must contain a static index page (like `index.html`) and an error page (like `error.html`).

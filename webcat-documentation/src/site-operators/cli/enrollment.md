@@ -1,6 +1,6 @@
 # Enrollment Commands
 
-The `enrollment` namespace manages Sigsum or Sigstore enrollment payloads. Sigsum enrollments
+The `enrollment` namespace manages [Sigsum](../../concepts.md#sigsum) or [Sigstore](../../concepts.md#sigstore) enrollment payloads. Sigsum enrollments
 are the default; use `--type sigstore` along with Sigstore claim constraints (`--claim`
 and/or compatibility flags `--issuer` + `--identity`) and either `--trusted-root` or
 `--community-trusted-root` to build Sigstore enrollments.
