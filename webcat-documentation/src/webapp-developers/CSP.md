@@ -1,19 +1,19 @@
 # CSP
-WEBCAT verifies that everything a page executes was covered by the signed manifest. The Content Security Policy is what makes that hold at runtime: it stops the page from loading scripts that are not in the manifest, from running code built at runtime with `eval()`, and from starting workers from `blob:` or `data:` URLs. For this to work, WEBCAT restricts which policies a manifest may declare and checks that the server really sends them.
+WEBCAT verifies that everything a page executes is covered by the signed manifest. The Content Security Policy enforces this at runtime: it prevents the page from loading scripts that are not in the manifest, from executing code generated at runtime with `eval()`, and from starting workers from `blob:` or `data:` URLs. WEBCAT therefore restricts which policies a manifest may declare and verifies that the server sends them.
 
-The authoritative list of rules is the [CSP section of the specification](https://github.com/freedomofpress/webcat-spec/blob/main/csp.md). This page explains how the rules are applied and how to write a policy that satisfies them.
+The authoritative list of rules is the [CSP section of the specification](https://github.com/freedomofpress/webcat-spec/blob/main/csp.md). This page describes how the rules are applied and how to write a compliant policy.
 
 ## How WEBCAT applies your policy
 
-Your manifest carries one mandatory policy, `default_csp`, and optionally a map of path-specific policies, `extra_csp`. Both are set in `webcat.config.json` (see the [schema](../site-operators/cli/config-schema.md)).
+A manifest contains one mandatory policy, `default_csp`, and optionally a map of path-specific policies, `extra_csp`. Both are configured in `webcat.config.json` (see the [schema](../site-operators/cli/config-schema.md)).
 
-**At manifest load.** Every policy in the manifest is validated against the rules below. A policy that breaks a rule fails the whole manifest, and the site does not load. The error page shows `ERR_WEBCAT_MANIFEST_DEFAULT_CSP_INVALID` or `ERR_WEBCAT_MANIFEST_EXTRA_CSP_INVALID`, or `ERR_WEBCAT_MANIFEST_EXTRA_CSP_MALFORMED` if `extra_csp` is not an object mapping paths to strings.
+**At manifest load.** Every policy in the manifest is validated against the rules below. A policy that violates a rule invalidates the entire manifest and the site does not load. The error page shows `ERR_WEBCAT_MANIFEST_DEFAULT_CSP_INVALID` or `ERR_WEBCAT_MANIFEST_EXTRA_CSP_INVALID`, or `ERR_WEBCAT_MANIFEST_EXTRA_CSP_MALFORMED` if `extra_csp` is not an object mapping paths to strings.
 
-**On every response.** Each response from the enrolled origin must carry a `Content-Security-Policy` header that matches the manifest policy for its path character for character. Whitespace, ordering and quoting all count. A different header gives `ERR_WEBCAT_CSP_MISMATCH`; a missing header gives `ERR_WEBCAT_HEADERS_MISSING_CRITICAL`. Responses served from the browser cache are exempt from the header check, since Firefox does not always expose their headers to extensions; the policy still applies to them.
+**On every response.** Each response from the enrolled origin must carry a `Content-Security-Policy` header that matches the manifest policy for its path character for character. Whitespace, directive ordering and quoting are all significant. A different header gives `ERR_WEBCAT_CSP_MISMATCH`; a missing header gives `ERR_WEBCAT_HEADERS_MISSING_CRITICAL`. Responses served from the browser cache are exempt from the header check because Firefox does not always expose their headers to extensions. The browser still enforces the policy on them.
 
-Send a single policy. Manifest policies must not contain commas. If something between the server and the page appends a further policy to the header, for example a browser extension such as NoScript, WEBCAT compares only the first policy; the browser still enforces all of them.
+Send a single policy. Manifest policies must not contain commas. If an intermediary, for example a browser extension such as NoScript, appends a further policy to the header, WEBCAT compares only the first policy. The browser enforces all of them.
 
-**Which policy applies to a path.** WEBCAT looks for the request path as an exact key in `extra_csp`, then for the longest `extra_csp` key that is a prefix of the path, and falls back to `default_csp`. A request for `/` is matched as `default_index`. Keys in `extra_csp` are plain string prefixes: `"/admin"` also covers `/admin-help.html`, so end keys with `/` when you mean a directory.
+**Which policy applies to a path.** WEBCAT looks for the request path as an exact key in `extra_csp`, then for the longest `extra_csp` key that is a prefix of the path, and falls back to `default_csp`. A request for `/` is matched as `default_index`. Keys in `extra_csp` are plain string prefixes: `"/admin"` also covers `/admin-help.html`, so terminate keys with `/` to denote a directory.
 
 ## Restrictions
 
@@ -60,27 +60,27 @@ The value must be `'none'` if `default-src` is not `'none'`, otherwise it may be
 ### frame-src, child-src
 These directives are not restricted. Any value is accepted, and they may be omitted.
 
-WEBCAT adds the `Origin-Agent-Cluster: ?1` header to every enrolled document. Frames are isolated from the embedding page by the same-origin policy, also when they are on the same site.
+WEBCAT adds the `Origin-Agent-Cluster: ?1` header to every enrolled document. This requests origin-keyed agent clustering, so frames are isolated from the embedding document by origin even when they belong to the same site.
 
 A framed origin that is enrolled is verified under its own manifest. A framed origin that is not enrolled is not verified.
 
 Do not send an `Origin-Agent-Cluster` header with a value other than `?1` for enrolled documents. Such responses are blocked.
 
-Set the `sandbox` attribute on frames that embed unverified content, such as CAPTCHAs, third-party players or payment widgets. Grant only the flags needed, for example `sandbox="allow-scripts"`, and never `allow-same-origin` for content you do not control. Exchange data with frames through `postMessage` with an explicit origin check.
+Set the `sandbox` attribute on frames that embed unverified content, such as CAPTCHAs, third-party players or payment widgets. Grant only the flags required, for example `sandbox="allow-scripts"`, and never `allow-same-origin` for content you do not control. Exchange data with frames through `postMessage` and verify the origin of every message.
 
 ### worker-src
 The only allowed source expressions are:
  - `'none'`
  - `'self'`
 
-The `worker-src` directive must be set if `default-src` is not `'none'`, otherwise it can be omitted. Set it explicitly anyway: when it is absent, browsers fall back to `child-src`, which is unrestricted.
+The `worker-src` directive must be set if `default-src` is not `'none'`, otherwise it can be omitted. Setting it explicitly is recommended in all cases, because browsers fall back to `child-src`, which is unrestricted, when it is absent.
 
 ### Everything else (img-src, connect-src, etc.)
 Other directives do not currently have limitations.
 
 ## Writing a policy
 
-Start from `default-src 'none'` and add only what the application needs. A typical policy for a single-page application:
+Start from `default-src 'none'` and add only the sources the application requires. A typical policy for a single-page application:
 
 ```
 default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; object-src 'none'; worker-src 'self'; img-src 'self' blob: data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'
@@ -88,25 +88,25 @@ default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; obje
 
 Directive by directive:
 
- - `default-src 'none'`: nothing loads unless a directive below allows it.
- - `script-src 'self' 'wasm-unsafe-eval'`: scripts only from the enrolled origin, which the manifest covers; drop `'wasm-unsafe-eval'` if the app has no WebAssembly.
- - `style-src 'self'`: stylesheets only from the enrolled origin. Add `'unsafe-inline'` only if the framework injects inline styles and you cannot avoid it.
- - `object-src 'none'`: no plugins. Required whenever `default-src` is not `'none'`, harmless to state always.
+ - `default-src 'none'`: no resource loads unless a more specific directive permits it.
+ - `script-src 'self' 'wasm-unsafe-eval'`: scripts only from the enrolled origin, which the manifest covers; omit `'wasm-unsafe-eval'` if the application does not use WebAssembly.
+ - `style-src 'self'`: stylesheets only from the enrolled origin. Add `'unsafe-inline'` only if the framework injects inline styles that cannot be avoided.
+ - `object-src 'none'`: disables plugins. Required whenever `default-src` is not `'none'`. Stating it in all cases is harmless.
  - `worker-src 'self'`: workers only from the enrolled origin, where their scripts are verified like any other script.
- - `img-src`, `font-src`, `connect-src`: unrestricted by WEBCAT, so tighten them to what the app uses. `connect-src` decides which API endpoints the app can call.
- - `frame-ancestors 'self'`: not restricted by WEBCAT, but stops other sites from framing the app.
+ - `img-src`, `font-src`, `connect-src`: not restricted by WEBCAT. Limit them to the sources the application uses. `connect-src` determines which API endpoints the application can call.
+ - `frame-ancestors 'self'`: not restricted by WEBCAT, but prevents other sites from framing the application.
 
 Then:
 
- - Put the exact same string in `webcat.config.json` and in the server or CDN configuration. Generate one from the other rather than typing it twice.
- - Check that nothing between the origin server and the browser rewrites the header. Some CDNs and security proxies append or reorder directives, which changes the string and fails the match.
- - Use `extra_csp` only when a path really needs a different policy. Every entry is validated by the same rules, so it cannot be used to relax them.
+ - Use the identical string in `webcat.config.json` and in the server or CDN configuration. Generating one from the other avoids transcription errors.
+ - Verify that no intermediary between the origin server and the browser rewrites the header. Some CDNs and security proxies append or reorder directives, which changes the string and fails the match.
+ - Use `extra_csp` only when a path requires a different policy. Every entry is validated against the same rules and cannot be used to relax them.
 
 ## Setting the header
 
-Every response from the enrolled origin needs the header, including error pages and static assets, so set it at the server or hosting platform level, not per page.
+Every response from the enrolled origin must carry the header, including error pages and static assets. Set it at the server or hosting platform level rather than per page.
 
-**GitHub Pages** does not support custom response headers, so a site hosted there cannot carry a CSP and cannot be enrolled. Proxy it through Cloudflare and set the header there, or host elsewhere.
+**GitHub Pages** does not support custom response headers, so a site hosted there cannot send a CSP and cannot be enrolled. Either proxy the site through Cloudflare and set the header there, or use a different host.
 
 **Cloudflare Pages**: add a `_headers` file to the build output directory. Per-path rules map directly to `extra_csp` entries. [Instructions](https://developers.cloudflare.com/pages/configuration/headers/).
 
@@ -149,7 +149,7 @@ http:
         contentSecurityPolicy: "default-src 'none'; script-src 'self'; ..."
 ```
 
-Check the result against the config file before enrolling:
+Verify the served header against the configuration file before enrolling:
 
 ```
 curl -sI https://example.com/ | grep -i content-security-policy
