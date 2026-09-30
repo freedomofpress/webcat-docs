@@ -1,8 +1,8 @@
 # End-to-End Example
 
-This example walks through the full **Sigsum** signing workflow with the CLI. If you are using **Sigstore** instead, you generally do not run these steps manually — see [GitHub Actions](../GA.md).
+This example walks through the full **[Sigsum](../../concepts.md#sigsum)** signing workflow with the CLI. If you are using **[Sigstore](../../concepts.md#sigstore)** instead, you generally do not run these steps manually — see [GitHub Actions](../GA.md).
 
-The webcat-cli repository includes [`demo.sh`](https://github.com/freedomofpress/webcat-cli/blob/main/demo.sh), which exercises the full workflow. The commands
+The [webcat-cli](../../concepts.md#webcat-cli) repository includes [`demo.sh`](https://github.com/freedomofpress/webcat-cli/blob/main/demo.sh), which exercises the full workflow. The commands
 below mirror that script so you can quickly test the CLI end to end:
 
 ```sh
@@ -69,4 +69,4 @@ npx webcat manifest verify bundle.json
 ```
 
 The script prints intermediate JSON artifacts with `jq` so you can inspect the
-resulting enrollment, manifest, and bundle.
+resulting enrollment, [manifest](../../concepts.md#manifest), and [bundle](../../concepts.md#bundle).

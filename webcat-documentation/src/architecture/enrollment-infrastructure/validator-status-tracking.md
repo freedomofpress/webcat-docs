@@ -1,6 +1,6 @@
 # Validator Status Tracking
 
-This page documents how the enrollment chain tracks validator status, how validators are
+This page documents how the [enrollment chain](../../concepts.md#enrollment-chain) tracks [validator](../../concepts.md#validator) status, how validators are
 jailed for downtime and tombstoned for equivocation, and how jailed validators
 are automatically unjailed once their uptime recovers.
 
