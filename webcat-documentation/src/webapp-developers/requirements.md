@@ -25,6 +25,8 @@ This constraint introduces some trade-offs. It disallows certain common patterns
 
 While it is theoretically possible to download such scripts and include them as static application assets, doing so is fragile: the upstream code may change at any time, breaking functionality, and it may not be compatible with the CSP restrictions required by WEBCAT. Moreover, including large, opaque, and obfuscated code blobs undermines WEBCAT's auditability and monitoring goals.
 
+The supported approach for such components is to isolate them in a sandboxed frame on a separate, non-enrolled origin and communicate through `postMessage`. See [Embedding untrusted content](./embedding-untrusted-content.md).
+
 ## HTTP server headers restriction
 Some HTTP headers can influence the execution environment of a webpage, and as such, they might be limited.
 

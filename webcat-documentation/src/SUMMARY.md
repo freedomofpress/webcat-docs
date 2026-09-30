@@ -17,6 +17,7 @@
 - [For developers](./webapp-developers/README.md)
   - [App requirements](./webapp-developers/requirements.md)
   - [CSP](./webapp-developers/CSP.md)
+  - [Embedding untrusted content](./webapp-developers/embedding-untrusted-content.md)
   - [Preparing your app](./webapp-developers/preparing-your-app.md)
   - [Examples](./webapp-developers/examples.md)
 - [Architecture](./architecture/README.md)
