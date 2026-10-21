@@ -28,6 +28,20 @@ go install sigsum.org/sigsum-go/cmd/sigsum-submit@latest
 
 By default, these binaries will be available in `$HOME/go/bin`.
 
+### With Nix
+
+The [Nix](https://nixos.org/explore/) flake bundles `webcat` with the Sigsum tools, so no separate Go step is needed:
+
+```sh
+nix profile install github:freedomofpress/webcat-cli#toolchain
+```
+
+Or run it once, without installing:
+
+```sh
+nix run github:freedomofpress/webcat-cli -- --help
+```
+
 ## Using the CLI
 
 Once installed, you can use the CLI and sigsum for [manual signing](../manual.md) of your web assets manifest.
