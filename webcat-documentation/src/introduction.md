@@ -4,6 +4,8 @@ WEBCAT is a system for verifying the provenance of static web assets; [a tamper-
 
 Questions? Read our [FAQ](./faq.md).
 
+The whole documentation is also available as a single page, for reading offline or feeding to an LLM: [HTML](https://docs.webcat.tech/print.html) or [Markdown](https://docs.webcat.tech/book.md).
+
 ## Quick start
 
 Get started with WEBCAT if you are a
