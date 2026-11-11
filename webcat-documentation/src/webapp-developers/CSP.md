@@ -13,7 +13,7 @@ A manifest contains one mandatory policy, `default_csp`, and optionally a map of
 
 Send a single policy. Manifest policies must not contain commas. If an intermediary, for example a [browser extension](../concepts.md#browser-extension) such as NoScript, appends a further policy to the header, WEBCAT compares only the first policy. The browser enforces all of them.
 
-**Which policy applies to a path.** WEBCAT looks for the request path as an exact key in `extra_csp`, then for the longest `extra_csp` key that is a prefix of the path, and falls back to `default_csp`. A request for `/` is matched as `default_index`. Keys in `extra_csp` are plain string prefixes: `"/admin"` also covers `/admin-help.html`, so terminate keys with `/` to denote a directory.
+**Which policy applies to a path.** WEBCAT looks for the request path as an exact key in `extra_csp`, then for the longest `extra_csp` key that is a prefix of the path, and falls back to `default_csp`. The request path is used as is, so a request for `/` is matched against the key `/`. Keys in `extra_csp` are plain string prefixes: `"/admin"` also covers `/admin-help.html`, so terminate keys with `/` to denote a directory.
 
 ## Restrictions
 

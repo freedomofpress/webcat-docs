@@ -14,6 +14,7 @@
     - [Bundle commands](./site-operators/cli/bundle.md)
     - [End-to-end example](./site-operators/cli/end-to-end.md)
     - [webcat.config.json schema](./site-operators/cli/config-schema.md)
+  - [Manifest and enrollment schemas](./site-operators/schemas.md)
 - [For web app developers](./webapp-developers/README.md)
   - [App requirements](./webapp-developers/requirements.md)
   - [CSP](./webapp-developers/CSP.md)

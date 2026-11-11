@@ -85,6 +85,9 @@ Each error code indicates the validation stage and failure reason. As an [end us
 | `ERR_WEBCAT_ENROLLMENT_CLAIMS_MISSING`        | Enrollment (Sigstore) | Required OIDC claims are missing.                         |
 | `ERR_WEBCAT_ENROLLMENT_CLAIMS_MALFORMED`      | Enrollment (Sigstore) | OIDC claims are malformed.                                |
 | `ERR_WEBCAT_ENROLLMENT_CLAIMS_EMPTY`          | Enrollment (Sigstore) | No OIDC claims were provided.                             |
+| `ERR_WEBCAT_ENROLLMENT_SCHEMA_INVALID`        | Enrollment            | `enrollment_schema` is not a positive integer.            |
+| `ERR_WEBCAT_ENROLLMENT_SCHEMA_UNSUPPORTED`    | Enrollment            | `enrollment_schema` is newer than this extension supports; update the extension. |
+| `ERR_WEBCAT_ENROLLMENT_SCHEMA_DEPRECATED`     | Enrollment            | `enrollment_schema` is older than the minimum; the site must enroll again under a newer schema. |
 
 
 #### Manifest errors
@@ -97,15 +100,17 @@ Each error code indicates the validation stage and failure reason. As an [end us
 | `ERR_WEBCAT_MANIFEST_TIMESTAMP_VERIFY_FAILED`       | Manifest  | Timestamp verification failed.               |
 | `ERR_WEBCAT_MANIFEST_EXPIRED`                       | Manifest  | Manifest has expired based on max-age.       |
 | `ERR_WEBCAT_MANIFEST_FILES_MISSING`                 | Manifest  | Required file entries are missing.           |
-| `ERR_WEBCAT_MANIFEST_DEFAULT_INDEX_MISSING`         | Manifest  | Default index configuration missing.         |
-| `ERR_WEBCAT_MANIFEST_DEFAULT_INDEX_MISSING_FILE`    | Manifest  | Default index file not found in manifest.    |
-| `ERR_WEBCAT_MANIFEST_DEFAULT_FALLBACK_MISSING`      | Manifest  | Default fallback configuration missing.      |
-| `ERR_WEBCAT_MANIFEST_DEFAULT_FALLBACK_MISSING_FILE` | Manifest  | Default fallback file not found in manifest. |
+| `ERR_WEBCAT_MANIFEST_FILES_MALFORMED`               | Manifest  | A file entry is not a base64url SHA-256 hash. |
+| `ERR_WEBCAT_MANIFEST_FALLBACK_HASHES_MALFORMED`     | Manifest  | `fallback_hashes`, or a legacy `default_index`/`default_fallback`, is malformed or does not resolve to a file. |
 | `ERR_WEBCAT_MANIFEST_DEFAULT_CSP_MISSING`           | Manifest  | Default Content Security Policy missing.     |
 | `ERR_WEBCAT_MANIFEST_DEFAULT_CSP_INVALID`           | Manifest  | Default CSP is invalid.                      |
 | `ERR_WEBCAT_MANIFEST_EXTRA_CSP_INVALID`             | Manifest  | Additional CSP directive invalid.            |
 | `ERR_WEBCAT_MANIFEST_EXTRA_CSP_MALFORMED`           | Manifest  | Additional CSP directive malformed.          |
 | `ERR_WEBCAT_MANIFEST_WASM_MISSING`                  | Manifest  | WebAssembly information missing.     |
+| `ERR_WEBCAT_MANIFEST_SCHEMA_INVALID`                | Manifest  | `manifest_schema` is not a positive integer. |
+| `ERR_WEBCAT_MANIFEST_SCHEMA_UNSUPPORTED`            | Manifest  | `manifest_schema` is newer than this extension supports; update the extension. |
+| `ERR_WEBCAT_MANIFEST_SCHEMA_DEPRECATED`             | Manifest  | `manifest_schema` is older than the minimum; the site must publish a newer manifest. |
+| `ERR_WEBCAT_MANIFEST_PROVENANCE_MALFORMED`          | Manifest  | `source` or `artifact` is not a string.      |
 
 
 #### CSP errors
