@@ -35,3 +35,5 @@ Some HTTP headers can influence the execution environment of a webpage, and as s
 ## Minimum app contents
 
 In order for a [site operator](../concepts.md#site-operators) to use the [webcat-cli](../site-operators/cli/) with the app, at a minimum it must contain a static index page (like `index.html`) and an error page (like `error.html`).
+
+> **Note:** Firefox requests `/favicon.ico` on history (back/forward) navigation, even when the page does not reference one ([Firefox bug 1715468](https://bugzilla.mozilla.org/show_bug.cgi?id=1715468); a [patch](https://phabricator.services.mozilla.com/D339970) is pending review). If the server answers with a 404 that is not one of the app's fallback documents, or that lacks the required headers, the extension raises an integrity error. Until the fix ships, the only solution is to either ship a `/favicon.ico` in the app or make sure every 404 response is one of the manifest's [fallback documents](../site-operators/schemas.md#fallbacks) and carries the required headers. See [webcat#192](https://github.com/freedomofpress/webcat/issues/192).

@@ -26,7 +26,7 @@ The preload list is a signed snapshot of the *canonical state*, together with th
 
 #### Manifest
 
-A manifest is a JSON document that lists a *web app*'s files and their hashes, its Content Security Policy, and related metadata. The developer signs it according to the domain's *trust policy* and records the signature in a *transparency log*. *webcat-cli* generates manifests.
+A manifest is a JSON document that lists a *web app*'s files and their hashes, its Content Security Policy, and related metadata. The developer signs it according to the domain's *trust policy* and records the signature in a *transparency log*. *webcat-cli* generates manifests. Manifests and *enrollment information* are versioned; see [schemas](site-operators/schemas.md).
 
 #### Bundle
 
